@@ -99,7 +99,8 @@ export default function ShapePage({ params }: { params: { slug: string } }) {
   >
     {slug.replace(/-/g, " ")} Parameters
   </h2>
-  <ShapeForm fields={fields} />
+ <ShapeForm fields={fields} shapeName={slug} />
+
 </div>
 
 
