@@ -48,7 +48,7 @@ export default function ShapeList() {
   };
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 p-8">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 p-8 ">
       {shapes.map((shape, i) => (
         <div
           key={i}
@@ -59,11 +59,11 @@ export default function ShapeList() {
           <img
             src={shape.img}
             alt={shape.name}
-            className="w-20 h-20 object-contain mb-3"
+            className="w-26 h-26 object-contain mb-3"
           />
 
-          {/* Ligne décorative */}
-          <hr className="w-16 h-[2px] bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 border-0 rounded-full my-2" />
+         {/* ✅ Ligne décorative mise à jour */}
+          <hr className="w-18 h-[4px] bg-gradient-to-r from-blue-400 via-cyan-300 to-yellow-400 border-0 rounded-full my-2" />
 
           {/* Nom du shape */}
           <p className="font-semibold text-gray-700 text-center text-sm">

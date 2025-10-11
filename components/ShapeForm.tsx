@@ -25,14 +25,21 @@ export default function ShapeForm({ fields }: { fields: string[] }) {
             type="number"
             placeholder={`Enter ${field.toLowerCase()}`}
             onChange={(e) => handleChange(field, e.target.value)}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
         </div>
       ))}
 
+      {/* ✅ Nouveau bouton cohérent avec la charte Flat Pattern */}
       <button
         type="submit"
-        className="mt-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 rounded-lg hover:opacity-90 transition"
+        className="
+          mt-4 py-2.5 rounded-lg font-semibold text-gray-900
+          bg-gradient-to-r from-blue-400 via-cyan-300 to-yellow-400
+          shadow-md transition-all duration-300
+          hover:from-blue-500 hover:via-cyan-400 hover:to-yellow-500
+          hover:scale-[1.02]
+        "
       >
         Generate
       </button>

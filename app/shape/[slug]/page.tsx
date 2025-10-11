@@ -7,192 +7,30 @@ import ShapeForm from "@/components/ShapeForm";
    🔹 FORM PARAMETERS PER SHAPE (Industry Accurate)
 ------------------------------------------------- */
 const shapeForms: Record<string, string[]> = {
-  // ✅ Cone
-  cone: [
-    "Base Diameter (D1)",
-    "Apex Height (H)",
-  ],
-
-  // ✅ Offset Cone
-  "offset-cone": [
-    "Large Diameter (D1)",
-    "Small Diameter (D2)",
-    "Height (H)",
-    "Offset (Eccentricity)",
-  ],
-
-  // ✅ Frustum Cone
-  "frustum-cone": [
-    "Large Diameter (D1)",
-    "Small Diameter (D2)",
-    "Height (H)",
-  ],
-
-  // ✅ Frustum Cone (Triangulation)
-  "frustum-cone-triangulation": [
-    "Large Diameter (D1)",
-    "Small Diameter (D2)",
-    "Height (H)",
-    "Number of Divisions (Segments)",
-  ],
-
-  // ✅ Frustum Eccentric Parallel
-  "frustum-ecc-paral": [
-    "Large Diameter (D1)",
-    "Small Diameter (D2)",
-    "Height (H)",
-    "Offset X",
-    "Offset Y",
-  ],
-
-  // ✅ Frustum Eccentric Angular
-  "frustum-ecc-angle": [
-    "Large Diameter (D1)",
-    "Small Diameter (D2)",
-    "Height (H)",
-    "Angle (°)",
-  ],
-
-  // ✅ Truncated Cylinder
-  "truncated-cylinder": [
-    "Cylinder Diameter (D)",
-    "Cylinder Height (H)",
-    "Cut Angle (°)",
-  ],
-
-  // ✅ Bend (Elbow)
-  bend: [
-    "Pipe Diameter (D)",
-    "Centerline Radius (R)",
-    "Bend Angle (°)",
-    "Thickness (t)",
-  ],
-
-  // ✅ Rectangle → Circle Transition
-  "rectangle-to-circle": [
-    "Rectangle Width (W)",
-    "Rectangle Height (H)",
-    "Circle Diameter (D)",
-    "Transition Height",
-  ],
-
-  // ✅ Circle → Rectangle Transition
-  "circle-to-rectangle": [
-    "Circle Diameter (D)",
-    "Rectangle Width (W)",
-    "Rectangle Height (H)",
-    "Transition Height",
-  ],
-
-  // ✅ Rectangle → Rectangle Transition
-  "rectangle-to-rectangle": [
-    "Inlet Width (W1)",
-    "Inlet Height (H1)",
-    "Outlet Width (W2)",
-    "Outlet Height (H2)",
-    "Transition Height",
-  ],
-
-  // ✅ Pants (Y-branch symmetric)
-  pants: [
-    "Main Diameter (D1)",
-    "Branch Diameter (D2)",
-    "Branch Angle (°)",
-    "Intersection Height",
-  ],
-
-  // ✅ Pants Eccentric
-  "pants-ecc": [
-    "Main Diameter (D1)",
-    "Branch Diameter (D2)",
-    "Branch Offset (Eccentricity)",
-    "Angle (°)",
-  ],
-
-  // ✅ Pants 2 (asymmetric)
-  "pants-2": [
-    "Main Diameter (D1)",
-    "Left Branch Diameter (D2)",
-    "Right Branch Diameter (D3)",
-    "Angle Between Branches (°)",
-  ],
-
-  // ✅ Breeches (Double Y)
-  breeches: [
-    "Main Diameter (D1)",
-    "Left Branch Diameter (D2)",
-    "Right Branch Diameter (D3)",
-    "Branch Angle (°)",
-  ],
-
-  // ✅ Tee
-  tee: [
-    "Main Diameter (D1)",
-    "Branch Diameter (D2)",
-    "Branch Angle (°)",
-    "Intersection Height",
-  ],
-
-  // ✅ Tee Eccentric
-  "tee-eccentric": [
-    "Main Diameter (D1)",
-    "Branch Diameter (D2)",
-    "Eccentricity (Offset)",
-    "Branch Angle (°)",
-  ],
-
-  // ✅ Tee on Cone
-  "tee-on-cone": [
-    "Cone Base Diameter (D1)",
-    "Cone Height (H)",
-    "Branch Diameter (D2)",
-    "Branch Angle (°)",
-  ],
-
-  // ✅ Offset Tee
-  "offset-tee": [
-    "Main Diameter (D1)",
-    "Branch Diameter (D2)",
-    "Offset (Eccentricity)",
-    "Branch Angle (°)",
-  ],
-
-  // ✅ Tee on Bend
-  "tee-on-bend": [
-    "Main Diameter (D1)",
-    "Branch Diameter (D2)",
-    "Bend Radius (R)",
-    "Bend Angle (°)",
-  ],
-
-  // ✅ Pyramid
-  pyramid: [
-    "Base Width (W)",
-    "Base Depth (L)",
-    "Apex Height (H)",
-  ],
-
-  // ✅ Auger (Helix)
-  auger: [
-    "Outer Diameter (D)",
-    "Inner Shaft Diameter (d)",
-    "Pitch (P)",
-    "Length (L)",
-  ],
-
-  // ✅ Sphere
-  sphere: [
-    "Sphere Diameter (D)",
-  ],
-
-  // ✅ Flange
-  flange: [
-    "Outer Diameter (D1)",
-    "Inner Diameter (D2)",
-    "Bolt Circle Diameter (BCD)",
-    "Number of Holes",
-    "Thickness (t)",
-  ],
+  cone: ["Base Diameter (D1)", "Apex Height (H)"],
+  "offset-cone": ["Large Diameter (D1)", "Small Diameter (D2)", "Height (H)", "Offset (Eccentricity)"],
+  "frustum-cone": ["Large Diameter (D1)", "Small Diameter (D2)", "Height (H)"],
+  "frustum-cone-triangulation": ["Large Diameter (D1)", "Small Diameter (D2)", "Height (H)", "Number of Divisions (Segments)"],
+  "frustum-ecc-paral": ["Large Diameter (D1)", "Small Diameter (D2)", "Height (H)", "Offset X", "Offset Y"],
+  "frustum-ecc-angle": ["Large Diameter (D1)", "Small Diameter (D2)", "Height (H)", "Angle (°)"],
+  "truncated-cylinder": ["Cylinder Diameter (D)", "Cylinder Height (H)", "Cut Angle (°)"],
+  bend: ["Pipe Diameter (D)", "Centerline Radius (R)", "Bend Angle (°)", "Thickness (t)"],
+  "rectangle-to-circle": ["Rectangle Width (W)", "Rectangle Height (H)", "Circle Diameter (D)", "Transition Height"],
+  "circle-to-rectangle": ["Circle Diameter (D)", "Rectangle Width (W)", "Rectangle Height (H)", "Transition Height"],
+  "rectangle-to-rectangle": ["Inlet Width (W1)", "Inlet Height (H1)", "Outlet Width (W2)", "Outlet Height (H2)", "Transition Height"],
+  pants: ["Main Diameter (D1)", "Branch Diameter (D2)", "Branch Angle (°)", "Intersection Height"],
+  "pants-ecc": ["Main Diameter (D1)", "Branch Diameter (D2)", "Branch Offset (Eccentricity)", "Angle (°)"],
+  "pants-2": ["Main Diameter (D1)", "Left Branch Diameter (D2)", "Right Branch Diameter (D3)", "Angle Between Branches (°)"],
+  breeches: ["Main Diameter (D1)", "Left Branch Diameter (D2)", "Right Branch Diameter (D3)", "Branch Angle (°)"],
+  tee: ["Main Diameter (D1)", "Branch Diameter (D2)", "Branch Angle (°)", "Intersection Height"],
+  "tee-eccentric": ["Main Diameter (D1)", "Branch Diameter (D2)", "Eccentricity (Offset)", "Branch Angle (°)"],
+  "tee-on-cone": ["Cone Base Diameter (D1)", "Cone Height (H)", "Branch Diameter (D2)", "Branch Angle (°)"],
+  "offset-tee": ["Main Diameter (D1)", "Branch Diameter (D2)", "Offset (Eccentricity)", "Branch Angle (°)"],
+  "tee-on-bend": ["Main Diameter (D1)", "Branch Diameter (D2)", "Bend Radius (R)", "Bend Angle (°)"],
+  pyramid: ["Base Width (W)", "Base Depth (L)", "Apex Height (H)"],
+  auger: ["Outer Diameter (D)", "Inner Shaft Diameter (d)", "Pitch (P)", "Length (L)"],
+  sphere: ["Sphere Diameter (D)"],
+  flange: ["Outer Diameter (D1)", "Inner Diameter (D2)", "Bolt Circle Diameter (BCD)", "Number of Holes", "Thickness (t)"],
 };
 
 /* -----------------------------------------------
@@ -236,11 +74,18 @@ export default function ShapePage({ params }: { params: { slug: string } }) {
   const imageSrc = shapeImages[slug] || "/shapes/default.jpg";
 
   return (
-    <div className="flex flex-col items-center justify-center gap-10 p-10">
+    <div className="flex flex-col items-center justify-center gap-10 p-10 mt-15">
       {/* 🔙 Back Button */}
       <button
         onClick={() => router.push("/")}
-        className="self-start mb-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-5 py-2 rounded-lg shadow-md hover:opacity-90 transition"
+        className="
+          self-start mb-6 
+          w-auto px-5 py-2 rounded-lg font-semibold text-gray-900
+          bg-gradient-to-r from-blue-400 via-cyan-300 to-yellow-400
+          shadow-md transition-all duration-300
+          hover:from-blue-500 hover:via-cyan-400 hover:to-yellow-500
+          hover:scale-[1.02]
+        "
       >
         ← Back to Home
       </button>
@@ -260,7 +105,7 @@ export default function ShapePage({ params }: { params: { slug: string } }) {
           <img
             src={imageSrc}
             alt={slug}
-            className="w-80 h-80 object-contain rounded-xl shadow-lg"
+            className="w-100 h-100 object-contain rounded-xl shadow-lg"
           />
         </div>
       </div>
