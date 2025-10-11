@@ -75,7 +75,7 @@ export default function ShapeForm({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-0">
       {fields.map((field, i) => (
         <div key={i}>
           <label

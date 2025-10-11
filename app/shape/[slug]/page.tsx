@@ -74,7 +74,7 @@ export default function ShapePage({ params }: { params: { slug: string } }) {
   const imageSrc = shapeImages[slug] || "/shapes/default.jpg";
 
   return (
-    <div className="flex flex-col items-center justify-center gap-10 p-10 mt-15">
+    <div className="flex flex-col items-center justify-center gap-10 p-10 mt-12">
       {/* 🔙 Back Button */}
       <button
         onClick={() => router.push("/")}
