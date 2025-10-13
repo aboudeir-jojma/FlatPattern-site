@@ -1,30 +1,13 @@
 @import "tailwindcss";
-/* Empêche le curseur texte d'apparaître en dehors de l'input */
-form {
-  cursor: default;
+
+/* On garde la saisie, mais on cache le curseur clignotant */
+input,
+textarea {
+  caret-color: transparent; /* cache la barre */
 }
 
-form input,
-form textarea {
+/* On garde le curseur texte normal pour éviter de casser l'UX */
+input,
+textarea {
   cursor: text;
-}
-/* Empêche le curseur de se placer automatiquement au début de l'input
-   lorsqu'on clique à l'extérieur du texte */
-input[type="number"] {
-  caret-color: auto; /* couleur normale du curseur */
-  user-select: text;
-}
-
-input[type="number"]::selection {
-  background: rgba(180, 230, 255, 0.6);
-}
-
-/* Supprime le comportement par défaut du conteneur qui focus l’input */
-label {
-  pointer-events: none;
-}
-
-/* MAIS réactive le clic à l’intérieur du champ */
-label > input {
-  pointer-events: auto;
 }
