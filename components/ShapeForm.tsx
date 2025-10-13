@@ -12,6 +12,12 @@ export default function ShapeForm({
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
+  // 🟢 Détection automatique : local ou production
+  const API_BASE_URL =
+    typeof window !== "undefined" && window.location.hostname === "localhost"
+      ? "http://192.168.100.134:5000" // 👉 backend local
+      : "https://semigeometric-vern-nonmineralogically.ngrok-free.dev"; // 👉 ton URL ngrok HTTPS
+
   const handleChange = (key: string, value: string) => {
     setValues((prev) => ({ ...prev, [key]: value }));
   };
@@ -22,16 +28,18 @@ export default function ShapeForm({
     setMessage("");
 
     try {
-      // 🟨 Vérification avant envoi
+      // 🟨 Log de debug
       console.log("🟦 Shape envoyé :", shapeName);
       console.log("🟨 Params envoyés :", JSON.stringify(values, null, 2));
+      console.log("🌍 URL API utilisée :", `${API_BASE_URL}/generate_dxf`);
 
-      const response = await fetch("http://192.168.100.134:5000/generate_dxf", {
+      // 🟦 Appel API (automatique selon environnement)
+      const response = await fetch(`${API_BASE_URL}/generate_dxf`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          shape: shapeName.replace(/-/g, "_"), // slug → backend
-          params: values, // données utilisateur
+          shape: shapeName.replace(/-/g, "_"), // ex: frustum-cone → frustum_cone
+          params: values,
         }),
       });
 
@@ -40,7 +48,7 @@ export default function ShapeForm({
         throw new Error(`Erreur ${response.status} : ${errText}`);
       }
 
-      // 🟩 Si OK → téléchargement DXF
+      // 🟩 Si OK → Téléchargement DXF
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
