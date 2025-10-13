@@ -16,7 +16,7 @@ export default function ShapeForm({
   const API_BASE_URL =
     typeof window !== "undefined" && window.location.hostname === "localhost"
       ? "http://192.168.100.134:5000" // 👉 backend local
-      : "https://semigeometric-vern-nonmineralogically.ngrok-free.dev"; // 👉 ton URL ngrok HTTPS
+      : "https://semigeometric-vern-nonmineralogically.ngrok-free.dev"; // 👉 backend prod
 
   const handleChange = (key: string, value: string) => {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -28,12 +28,10 @@ export default function ShapeForm({
     setMessage("");
 
     try {
-      // 🟨 Log de debug
       console.log("🟦 Shape envoyé :", shapeName);
       console.log("🟨 Params envoyés :", JSON.stringify(values, null, 2));
       console.log("🌍 URL API utilisée :", `${API_BASE_URL}/generate_dxf`);
 
-      // 🟦 Appel API (automatique selon environnement)
       const response = await fetch(`${API_BASE_URL}/generate_dxf`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -68,23 +66,30 @@ export default function ShapeForm({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-0">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-4 mt-0 cursor-default"
+    >
       {fields.map(({ label, key }, i) => (
-        <div key={i}>
+        <div key={i} className="relative">
+          {/* Le label ne capte plus le clic */}
           <label
             className="block font-medium mb-1 bg-gradient-to-r 
                        from-blue-400 via-cyan-300 to-yellow-400 
-                       bg-clip-text text-transparent"
+                       bg-clip-text text-transparent pointer-events-none"
           >
             {label}
           </label>
+
+          {/* Input cliquable uniquement à l’intérieur */}
           <input
             type="number"
             step="any"
             placeholder={`Enter ${label.toLowerCase()}`}
             onChange={(e) => handleChange(key, e.target.value)}
             className="w-full border border-gray-300 rounded-lg px-3 py-2 
-                       focus:outline-none focus:ring-2 focus:ring-blue-400"
+                       focus:outline-none focus:ring-2 focus:ring-blue-400
+                       pointer-events-auto"
             required
           />
         </div>
