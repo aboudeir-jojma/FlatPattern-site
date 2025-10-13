@@ -1,6 +1,3 @@
-"use client";
-
-import { useRouter } from "next/navigation";
 import ShapeForm from "@/components/ShapeForm";
 
 /* -----------------------------------------------
@@ -16,6 +13,7 @@ const shapeForms: Record<string, string[]> = {
   "truncated-cylinder": ["Cylinder Diameter (D)", "Cylinder Height (H)", "Cut Angle (°)"],
   bend: ["Pipe Diameter (D)", "Centerline Radius (R)", "Bend Angle (°)", "Thickness (t)"],
   "rectangle-to-circle": ["Rectangle Width (W)", "Rectangle Height (H)", "Circle Diameter (D)", "Transition Height"],
+  "rectangle-to-circle-ecc": ["Rectangle Width (W)", "Rectangle Height (H)", "Circle Diameter (D)", "Transition Height", "Eccentricity (Offset)"],
   "circle-to-rectangle": ["Circle Diameter (D)", "Rectangle Width (W)", "Rectangle Height (H)", "Transition Height"],
   "rectangle-to-rectangle": ["Inlet Width (W1)", "Inlet Height (H1)", "Outlet Width (W2)", "Outlet Height (H2)", "Transition Height"],
   pants: ["Main Diameter (D1)", "Branch Diameter (D2)", "Branch Angle (°)", "Intersection Height"],
@@ -48,6 +46,7 @@ const shapeImages: Record<string, string> = {
   "rectangle-to-circle": "/shapes/rectangle-circle.jpg",
   "circle-to-rectangle": "/shapes/circle-rectangle.jpg",
   "rectangle-to-rectangle": "/shapes/rectangle-rectangle.jpg",
+  "rectangle-to-circle-ecc": "/shapes/rectangle-to-circle-ecc.jpg",
   pants: "/shapes/pants.jpg",
   "pants-ecc": "/shapes/pants-ecc.jpg",
   "pants-2": "/shapes/pants2.jpg",
@@ -67,7 +66,6 @@ const shapeImages: Record<string, string> = {
    🔹 PAGE COMPONENT
 ------------------------------------------------- */
 export default function ShapePage({ params }: { params: { slug: string } }) {
-  const router = useRouter();
   const { slug } = params;
 
   const fields = shapeForms[slug] || ["Dimension 1", "Dimension 2"];
@@ -76,10 +74,10 @@ export default function ShapePage({ params }: { params: { slug: string } }) {
   return (
     <div className="flex flex-col items-center justify-center gap-10 p-10 mt-12">
       {/* 🔙 Back Button */}
-      <button
-        onClick={() => router.push("/")}
+      <a
+        href="/"
         className="
-          self-start mb-6 
+          self-start mb-6
           w-auto px-5 py-2 rounded-lg font-semibold text-gray-900
           bg-gradient-to-r from-blue-400 via-cyan-300 to-yellow-400
           shadow-md transition-all duration-300
@@ -88,7 +86,7 @@ export default function ShapePage({ params }: { params: { slug: string } }) {
         "
       >
         ← Back to Home
-      </button>
+      </a>
 
       {/* 🧾 Form + Image */}
       <div className="flex flex-col md:flex-row items-center justify-center gap-10 w-full">
@@ -109,10 +107,17 @@ export default function ShapePage({ params }: { params: { slug: string } }) {
           <img
             src={imageSrc}
             alt={slug}
-            className="w-90 h-90 object-contain rounded-xl shadow-lg"
+            className="w-90 h-90 object-contain"
           />
         </div>
       </div>
     </div>
   );
+}
+
+export async function generateStaticParams() {
+  const slugs = Object.keys(shapeForms);
+  return slugs.map((slug) => ({
+    slug,
+  }));
 }

@@ -15,6 +15,7 @@ const shapes = [
   { name: "Rectangle to Circle", img: "/shapes/rectangle-circle.jpg" },
   { name: "Circle to Rectangle", img: "/shapes/circle-rectangle.jpg" },
   { name: "Rectangle to Rectangle", img: "/shapes/rectangle-rectangle.jpg" },
+  { name: "Rectangle to Circle Ecc", img: "/shapes/rectangle-circle-ecc.jpg" },
   { name: "Pants", img: "/shapes/pants.jpg" },
   { name: "Pants Ecc", img: "/shapes/pants-ecc.jpg" },
   { name: "Pants 2", img: "/shapes/pants2.jpg" },
