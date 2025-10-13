@@ -47,7 +47,6 @@ export default function ShapeList() {
 
     router.push(`/shape/${slug}`);
   };
-
   return (
     <div className="w-full py-10 px-6">
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 w-full">
@@ -55,22 +54,22 @@ export default function ShapeList() {
           <div
             key={i}
             onClick={() => handleClick(shape.name)}
-            className="flex flex-col items-center justify-between bg-white rounded-xl shadow hover:shadow-2xl hover:scale-105 transition-all duration-300 p-5 cursor-pointer h-56"
+            className="relative flex flex-col items-center justify-end bg-white rounded-xl shadow hover:shadow-2xl hover:scale-105 transition-all duration-300 p-5 cursor-pointer h-56 overflow-hidden"
           >
-            {/* 🖼️ Image agrandie et centrée */}
-            <div className="flex items-center justify-center flex-grow">
+            {/* 🖼️ Image centrée derrière le contenu */}
+            <div className="absolute inset-0 flex items-center justify-center z-0">
               <img
                 src={shape.img}
                 alt={shape.name}
-                className="w-[75%] h-[75%] object-contain"
+                className="w-[60%] h-[50%] object-contain opacity-100"
               />
             </div>
 
-            {/* 🌈 Ligne décorative colorée */}
-            <hr className="w-16 h-[4px] bg-gradient-to-r from-blue-400 via-cyan-300 to-yellow-400 border-0 rounded-full my-2" />
+            {/* 🌈 Ligne décorative colorée (toujours visible) */}
+            <hr className="w-16 h-[4px] bg-gradient-to-r from-blue-400 via-cyan-300 to-yellow-400 border-0 rounded-full my-2 relative z-10" />
 
             {/* 🔤 Nom du shape */}
-            <p className="font-semibold text-gray-700 text-center text-sm">
+            <p className="font-semibold text-gray-700 text-center text-sm relative z-10 bg-white bg-opacity-70 px-2 rounded-md">
               {shape.name}
             </p>
           </div>

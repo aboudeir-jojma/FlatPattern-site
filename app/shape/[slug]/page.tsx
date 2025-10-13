@@ -1,34 +1,83 @@
 import ShapeForm from "@/components/ShapeForm";
 
 /* -----------------------------------------------
-   🔹 FORM PARAMETERS PER SHAPE (Industry Accurate)
+   🔹 FORM PARAMETERS LINKED TO BACKEND KEYS
 ------------------------------------------------- */
-const shapeForms: Record<string, string[]> = {
-  cone: ["Base Diameter (D1)", "Apex Height (H)"],
-  "offset-cone": ["Large Diameter (D1)", "Small Diameter (D2)", "Height (H)", "Offset (Eccentricity)"],
-  "frustum-cone": ["Large Diameter (D1)", "Small Diameter (D2)", "Height (H)"],
-  "frustum-cone-triangulation": ["Large Diameter (D1)", "Small Diameter (D2)", "Height (H)", "Number of Divisions (Segments)"],
-  "frustum-ecc-paral": ["Large Diameter (D1)", "Small Diameter (D2)", "Height (H)", "Offset X", "Offset Y"],
-  "frustum-ecc-angle": ["Large Diameter (D1)", "Small Diameter (D2)", "Height (H)", "Angle (°)"],
-  "truncated-cylinder": ["Cylinder Diameter (D)", "Cylinder Height (H)", "Cut Angle (°)"],
-  bend: ["Pipe Diameter (D)", "Centerline Radius (R)", "Bend Angle (°)", "Thickness (t)"],
-  "rectangle-to-circle": ["Rectangle Width (W)", "Rectangle Height (H)", "Circle Diameter (D)", "Transition Height"],
-  "rectangle-to-circle-ecc": ["Rectangle Width (W)", "Rectangle Height (H)", "Circle Diameter (D)", "Transition Height", "Eccentricity (Offset)"],
-  "circle-to-rectangle": ["Circle Diameter (D)", "Rectangle Width (W)", "Rectangle Height (H)", "Transition Height"],
-  "rectangle-to-rectangle": ["Inlet Width (W1)", "Inlet Height (H1)", "Outlet Width (W2)", "Outlet Height (H2)", "Transition Height"],
-  pants: ["Main Diameter (D1)", "Branch Diameter (D2)", "Branch Angle (°)", "Intersection Height"],
-  "pants-ecc": ["Main Diameter (D1)", "Branch Diameter (D2)", "Branch Offset (Eccentricity)", "Angle (°)"],
-  "pants-2": ["Main Diameter (D1)", "Left Branch Diameter (D2)", "Right Branch Diameter (D3)", "Angle Between Branches (°)"],
-  breeches: ["Main Diameter (D1)", "Left Branch Diameter (D2)", "Right Branch Diameter (D3)", "Branch Angle (°)"],
-  tee: ["Main Diameter (D1)", "Branch Diameter (D2)", "Branch Angle (°)", "Intersection Height"],
-  "tee-eccentric": ["Main Diameter (D1)", "Branch Diameter (D2)", "Eccentricity (Offset)", "Branch Angle (°)"],
-  "tee-on-cone": ["Cone Base Diameter (D1)", "Cone Height (H)", "Branch Diameter (D2)", "Branch Angle (°)"],
-  "offset-tee": ["Main Diameter (D1)", "Branch Diameter (D2)", "Offset (Eccentricity)", "Branch Angle (°)"],
-  "tee-on-bend": ["Main Diameter (D1)", "Branch Diameter (D2)", "Bend Radius (R)", "Bend Angle (°)"],
-  pyramid: ["Base Width (W)", "Base Depth (L)", "Apex Height (H)"],
-  auger: ["Outer Diameter (D)", "Inner Shaft Diameter (d)", "Pitch (P)", "Length (L)"],
-  sphere: ["Sphere Diameter (D)"],
-  flange: ["Outer Diameter (D1)", "Inner Diameter (D2)", "Bolt Circle Diameter (BCD)", "Number of Holes", "Thickness (t)"],
+const shapeForms: Record<
+  string,
+  { label: string; key: string }[]
+> = {
+  // ✅ Cone
+  cone: [
+    { label: "Base Diameter (D1)", key: "diameter" },
+    { label: "Apex Height (H)", key: "height" },
+  ],
+
+  // ✅ Offset Cone
+  "offset-cone": [
+    { label: "Large Diameter (D1)", key: "diameter1" },
+    { label: "Small Diameter (D2)", key: "diameter2" },
+    { label: "Height (H)", key: "height" },
+    { label: "Offset (Eccentricity)", key: "offset" },
+  ],
+
+  // ✅ Frustum Cone
+  "frustum-cone": [
+    { label: "Large Diameter (D1)", key: "diameter1" },
+    { label: "Small Diameter (D2)", key: "diameter2" },
+    { label: "Height (H)", key: "height" },
+  ],
+
+  // ✅ Frustum Cone Triangulation
+  "frustum-cone-triangulation": [
+    { label: "Large Diameter (D1)", key: "diameter1" },
+    { label: "Small Diameter (D2)", key: "diameter2" },
+    { label: "Height (H)", key: "height" },
+    { label: "Number of Divisions", key: "divisions" },
+  ],
+
+  // ✅ Truncated Cylinder
+  "truncated-cylinder": [
+    { label: "Cylinder Diameter (D)", key: "diameter" },
+    { label: "Cylinder Height (H)", key: "height" },
+    { label: "Cut Angle (°)", key: "angle" },
+  ],
+
+  // ✅ Pyramid
+  pyramid: [
+    { label: "Base", key: "base" },
+    { label: "Height (H)", key: "height" },
+    { label: "Thickness (t)", key: "thickness" },
+    { label: "Bend Radius (R)", key: "bend_radius" },
+    { label: "K-Factor", key: "k_factor" },
+    { label: "Bend Angle (°)", key: "bend_angle" },
+    { label: "Number of Sides", key: "sides" },
+  ],
+
+  // ✅ Rectangle → Rectangle
+  "rectangle-to-rectangle": [
+    { label: "Inlet Width (W1)", key: "w1" },
+    { label: "Inlet Height (H1)", key: "h1" },
+    { label: "Outlet Width (W2)", key: "w2" },
+    { label: "Outlet Height (H2)", key: "h2" },
+    { label: "Transition Height", key: "height" },
+  ],
+
+  // ✅ Bend
+  bend: [
+    { label: "Pipe Diameter (D)", key: "diameter" },
+    { label: "Bend Angle (°)", key: "bend_angle" },
+    { label: "Centerline Radius (R)", key: "radius" },
+    { label: "Divisions", key: "divisions" },
+  ],
+
+  // ✅ Flange
+  flange: [
+    { label: "Outer Diameter (D1)", key: "outer_d" },
+    { label: "Inner Diameter (D2)", key: "inner_d" },
+    { label: "Number of Holes", key: "holes" },
+    { label: "Hole Diameter", key: "hole_d" },
+  ],
 };
 
 /* -----------------------------------------------
@@ -61,14 +110,13 @@ const shapeImages: Record<string, string> = {
   sphere: "/shapes/sphere.jpg",
   flange: "/shapes/flange.jpg",
 };
-
 /* -----------------------------------------------
-   🔹 PAGE COMPONENT
+   🔹 PAGE COMPONENT (Server Component)
 ------------------------------------------------- */
-export default function ShapePage({ params }: { params: { slug: string } }) {
+export default async function ShapePage({ params }: { params: { slug: string } })
+{
   const { slug } = params;
-
-  const fields = shapeForms[slug] || ["Dimension 1", "Dimension 2"];
+  const fields = shapeForms[slug] || [];
   const imageSrc = shapeImages[slug] || "/shapes/default.jpg";
 
   return (
@@ -76,48 +124,34 @@ export default function ShapePage({ params }: { params: { slug: string } }) {
       {/* 🔙 Back Button */}
       <a
         href="/"
-        className="
-          self-start mb-6
-          w-auto px-5 py-2 rounded-lg font-semibold text-gray-900
-          bg-gradient-to-r from-blue-400 via-cyan-300 to-yellow-400
-          shadow-md transition-all duration-300
-          hover:from-blue-500 hover:via-cyan-400 hover:to-yellow-500
-          hover:scale-[1.02]
-        "
+        className="self-start mb-6 w-auto px-5 py-2 rounded-lg font-semibold text-gray-900 bg-gradient-to-r from-blue-400 via-cyan-300 to-yellow-400 shadow-md transition-all duration-300 hover:from-blue-500 hover:via-cyan-400 hover:to-yellow-500 hover:scale-[1.02]"
       >
         ← Back to Home
       </a>
 
       {/* 🧾 Form + Image */}
       <div className="flex flex-col md:flex-row items-center justify-center gap-10 w-full">
-    {/* Form */}
-<div className="bg-white rounded-xl shadow-xl p-6 w-full md:w-1/2">
-  <h2
-    className="text-2xl font-semibold mb-4 capitalize bg-gradient-to-r from-blue-400 via-cyan-300 to-yellow-400 bg-clip-text text-transparent"
-  >
-    {slug.replace(/-/g, " ")} Parameters
-  </h2>
- <ShapeForm fields={fields} shapeName={slug} />
-
-</div>
-
+        {/* Form */}
+        <div className="bg-white rounded-xl shadow-xl p-6 w-full md:w-1/2">
+          <h2 className="text-2xl font-semibold mb-4 capitalize bg-gradient-to-r from-blue-400 via-cyan-300 to-yellow-400 bg-clip-text text-transparent">
+            {slug.replace(/-/g, " ")} Parameters
+          </h2>
+          {/* ✅ Client-side Form Component */}
+          <ShapeForm fields={fields} shapeName={slug} />
+        </div>
 
         {/* Image */}
         <div className="w-full md:w-1/2 flex justify-center">
-          <img
-            src={imageSrc}
-            alt={slug}
-            className="w-90 h-90 object-contain"
-          />
+          <img src={imageSrc} alt={slug} className="w-90 h-90 object-contain" />
         </div>
       </div>
     </div>
   );
 }
 
+/* -----------------------------------------------
+   🔹 STATIC GENERATION
+------------------------------------------------- */
 export async function generateStaticParams() {
-  const slugs = Object.keys(shapeForms);
-  return slugs.map((slug) => ({
-    slug,
-  }));
+  return Object.keys(shapeForms).map((slug) => ({ slug }));
 }
