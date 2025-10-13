@@ -49,29 +49,33 @@ export default function ShapeList() {
   };
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 p-8 ">
-      {shapes.map((shape, i) => (
-        <div
-          key={i}
-          onClick={() => handleClick(shape.name)}
-          className="flex flex-col items-center bg-white rounded-xl shadow hover:shadow-2xl hover:scale-105 transition-all duration-300 p-5 cursor-pointer"
-        >
-          {/* Image */}
-          <img
-            src={shape.img}
-            alt={shape.name}
-            className="w-26 h-26 object-contain mb-3"
-          />
+    <div className="w-full py-10 px-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 w-full">
+        {shapes.map((shape, i) => (
+          <div
+            key={i}
+            onClick={() => handleClick(shape.name)}
+            className="flex flex-col items-center justify-between bg-white rounded-xl shadow hover:shadow-2xl hover:scale-105 transition-all duration-300 p-5 cursor-pointer h-56"
+          >
+            {/* 🖼️ Image agrandie et centrée */}
+            <div className="flex items-center justify-center flex-grow">
+              <img
+                src={shape.img}
+                alt={shape.name}
+                className="w-[75%] h-[75%] object-contain"
+              />
+            </div>
 
-         {/* ✅ Ligne décorative mise à jour */}
-          <hr className="w-18 h-[4px] bg-gradient-to-r from-blue-400 via-cyan-300 to-yellow-400 border-0 rounded-full my-2" />
+            {/* 🌈 Ligne décorative colorée */}
+            <hr className="w-16 h-[4px] bg-gradient-to-r from-blue-400 via-cyan-300 to-yellow-400 border-0 rounded-full my-2" />
 
-          {/* Nom du shape */}
-          <p className="font-semibold text-gray-700 text-center text-sm">
-            {shape.name}
-          </p>
-        </div>
-      ))}
+            {/* 🔤 Nom du shape */}
+            <p className="font-semibold text-gray-700 text-center text-sm">
+              {shape.name}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
