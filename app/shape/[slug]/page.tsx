@@ -28,7 +28,7 @@ const shapeForms: Record<
     { label: "Height (H)", key: "height" },
   ],
 
-  // ✅ Frustum Cone Triangulation
+  // ✅ Frustum Cone (Triangulation)
   "frustum-cone-triangulation": [
     { label: "Large Diameter (D1)", key: "diameter1" },
     { label: "Small Diameter (D2)", key: "diameter2" },
@@ -63,7 +63,7 @@ const shapeForms: Record<
     { label: "Transition Height", key: "height" },
   ],
 
-  // ✅ Bend
+  // ✅ Bend (Elbow)
   bend: [
     { label: "Pipe Diameter (D)", key: "diameter" },
     { label: "Bend Angle (°)", key: "bend_angle" },
@@ -77,6 +77,133 @@ const shapeForms: Record<
     { label: "Inner Diameter (D2)", key: "inner_d" },
     { label: "Number of Holes", key: "holes" },
     { label: "Hole Diameter", key: "hole_d" },
+  ],
+
+  // ✅ Frustum Eccentric Parallel
+  "frustum-ecc-paral": [
+    { label: "Large Diameter (D1)", key: "diameter1" },
+    { label: "Small Diameter (D2)", key: "diameter2" },
+    { label: "Height (H)", key: "height" },
+    { label: "Offset X", key: "offset_x" },
+    { label: "Offset Y", key: "offset_y" },
+  ],
+
+  // ✅ Frustum Eccentric Angular
+  "frustum-ecc-angle": [
+    { label: "Large Diameter (D1)", key: "diameter1" },
+    { label: "Small Diameter (D2)", key: "diameter2" },
+    { label: "Height (H)", key: "height" },
+    { label: "Angle (°)", key: "angle" },
+  ],
+
+  // ✅ Rectangle → Circle
+  "rectangle-to-circle": [
+    { label: "Rectangle Width (W)", key: "rect_width" },
+    { label: "Rectangle Height (H)", key: "rect_height" },
+    { label: "Circle Diameter (D)", key: "circle_diameter" },
+    { label: "Transition Height", key: "height" },
+  ],
+
+  // ✅ Circle → Rectangle
+  "circle-to-rectangle": [
+    { label: "Circle Diameter (D)", key: "circle_diameter" },
+    { label: "Rectangle Width (W)", key: "rect_width" },
+    { label: "Rectangle Height (H)", key: "rect_height" },
+    { label: "Transition Height", key: "height" },
+  ],
+
+  // ✅ Rectangle → Circle Eccentric
+  "rectangle-to-circle-ecc": [
+    { label: "Rectangle Width (W)", key: "rect_width" },
+    { label: "Rectangle Height (H)", key: "rect_height" },
+    { label: "Circle Diameter (D)", key: "circle_diameter" },
+    { label: "Transition Height", key: "height" },
+    { label: "Eccentricity (Offset)", key: "offset" },
+  ],
+
+  // ✅ Pants (Y-branch symmetric)
+  pants: [
+    { label: "Main Diameter (D1)", key: "main_diameter" },
+    { label: "Branch Diameter (D2)", key: "branch_diameter" },
+    { label: "Branch Angle (°)", key: "angle" },
+    { label: "Intersection Height", key: "height" },
+  ],
+
+  // ✅ Pants Eccentric
+  "pants-ecc": [
+    { label: "Main Diameter (D1)", key: "main_diameter" },
+    { label: "Branch Diameter (D2)", key: "branch_diameter" },
+    { label: "Branch Offset (Eccentricity)", key: "offset" },
+    { label: "Angle (°)", key: "angle" },
+  ],
+
+  // ✅ Pants 2 (asymmetric)
+  "pants-2": [
+    { label: "Main Diameter (D1)", key: "main_diameter" },
+    { label: "Left Branch Diameter (D2)", key: "left_branch_d" },
+    { label: "Right Branch Diameter (D3)", key: "right_branch_d" },
+    { label: "Angle Between Branches (°)", key: "angle" },
+  ],
+
+  // ✅ Breeches (Double Y)
+  breeches: [
+    { label: "Main Diameter (D1)", key: "main_diameter" },
+    { label: "Left Branch Diameter (D2)", key: "left_branch_d" },
+    { label: "Right Branch Diameter (D3)", key: "right_branch_d" },
+    { label: "Branch Angle (°)", key: "angle" },
+  ],
+
+  // ✅ Tee
+  tee: [
+    { label: "Main Diameter (D1)", key: "main_diameter" },
+    { label: "Branch Diameter (D2)", key: "branch_diameter" },
+    { label: "Branch Angle (°)", key: "angle" },
+    { label: "Intersection Height", key: "height" },
+  ],
+
+  // ✅ Tee Eccentric
+  "tee-eccentric": [
+    { label: "Main Diameter (D1)", key: "main_diameter" },
+    { label: "Branch Diameter (D2)", key: "branch_diameter" },
+    { label: "Eccentricity (Offset)", key: "offset" },
+    { label: "Branch Angle (°)", key: "angle" },
+  ],
+
+  // ✅ Tee on Cone
+  "tee-on-cone": [
+    { label: "Cone Base Diameter (D1)", key: "cone_diameter" },
+    { label: "Cone Height (H)", key: "cone_height" },
+    { label: "Branch Diameter (D2)", key: "branch_diameter" },
+    { label: "Branch Angle (°)", key: "angle" },
+  ],
+
+  // ✅ Offset Tee
+  "offset-tee": [
+    { label: "Main Diameter (D1)", key: "main_diameter" },
+    { label: "Branch Diameter (D2)", key: "branch_diameter" },
+    { label: "Offset (Eccentricity)", key: "offset" },
+    { label: "Branch Angle (°)", key: "angle" },
+  ],
+
+  // ✅ Tee on Bend
+  "tee-on-bend": [
+    { label: "Main Diameter (D1)", key: "main_diameter" },
+    { label: "Branch Diameter (D2)", key: "branch_diameter" },
+    { label: "Bend Radius (R)", key: "radius" },
+    { label: "Bend Angle (°)", key: "angle" },
+  ],
+
+  // ✅ Auger (Helix)
+  auger: [
+    { label: "Outer Diameter (D)", key: "outer_d" },
+    { label: "Inner Shaft Diameter (d)", key: "inner_d" },
+    { label: "Pitch (P)", key: "pitch" },
+    { label: "Length (L)", key: "length" },
+  ],
+
+  // ✅ Sphere
+  sphere: [
+    { label: "Sphere Diameter (D)", key: "diameter" },
   ],
 };
 
