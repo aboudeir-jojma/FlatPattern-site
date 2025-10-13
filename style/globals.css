@@ -1,1 +1,10 @@
 @import "tailwindcss";
+/* Empêche le curseur texte d'apparaître en dehors de l'input */
+form {
+  cursor: default;
+}
+
+form input,
+form textarea {
+  cursor: text;
+}
