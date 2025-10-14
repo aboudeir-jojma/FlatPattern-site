@@ -73,9 +73,7 @@ export default function ShapeForm({
       {fields.map(({ label, key }, i) => (
         <div key={i}>
           <label
-            className="block font-medium mb-1 bg-gradient-to-r 
-                       from-blue-400 via-cyan-300 to-yellow-400 
-                       bg-clip-text text-transparent"
+            className="block font-medium mb-1 text-black"
           >
             {label}
           </label>
@@ -84,9 +82,9 @@ export default function ShapeForm({
             step="any"
             placeholder={`Enter ${label.toLowerCase()}`}
             onChange={(e) => handleChange(key, e.target.value)}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 
-                       text-gray-800 placeholder-gray-400
-                       focus:outline-none focus:ring-2 focus:ring-blue-400
+            className="w-full border border-black rounded-lg px-3 py-2 
+                       text-black placeholder-black
+                       focus:outline-none focus:ring-2 focus:ring-black
                        appearance-none bg-white"
             required
           />
@@ -96,10 +94,9 @@ export default function ShapeForm({
       <button
         type="submit"
         disabled={loading}
-        className="mt-4 py-2.5 rounded-lg font-semibold text-gray-900
-                   bg-gradient-to-r from-blue-400 via-cyan-300 to-yellow-400
+        className="mt-4 py-2.5 rounded-lg font-semibold text-white
+                   bg-gray-600
                    shadow-md transition-all duration-300
-                   hover:from-blue-500 hover:via-cyan-400 hover:to-yellow-500
                    hover:scale-[1.02] disabled:opacity-70"
       >
         {loading ? "Generating..." : "Generate DXF"}
@@ -108,7 +105,7 @@ export default function ShapeForm({
       {message && (
         <p
           className={`text-sm mt-3 text-center ${
-            message.startsWith("✅") ? "text-green-600" : "text-red-500"
+            message.startsWith("✅") ? "text-black" : "text-black"
           }`}
         >
           {message}

@@ -66,10 +66,10 @@ export default function ShapeList() {
             </div>
 
             {/* 🌈 Ligne décorative colorée (toujours visible) */}
-            <hr className="w-16 h-[4px] bg-gradient-to-r from-blue-400 via-cyan-300 to-yellow-400 border-0 rounded-full my-2 relative z-10" />
+            <hr className="w-16 h-[4px] bg-black border-0 rounded-full my-2 relative z-10" />
 
             {/* 🔤 Nom du shape */}
-            <p className="font-semibold text-gray-700 text-center text-sm relative z-10 bg-white bg-opacity-70 px-2 rounded-md">
+            <p className="font-semibold text-black text-center text-sm relative z-10 bg-white bg-opacity-70 px-2 rounded-md">
               {shape.name}
             </p>
           </div>

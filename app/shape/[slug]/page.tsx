@@ -251,7 +251,7 @@ export default async function ShapePage({ params }: { params: { slug: string } }
       {/* 🔙 Back Button */}
       <a
         href="/"
-        className="self-start mb-6 w-auto px-5 py-2 rounded-lg font-semibold text-gray-900 bg-gradient-to-r from-blue-400 via-cyan-300 to-yellow-400 shadow-md transition-all duration-300 hover:from-blue-500 hover:via-cyan-400 hover:to-yellow-500 hover:scale-[1.02]"
+        className="self-start mb-6 w-auto px-5 py-2 rounded-lg font-semibold text-white bg-gray-600 shadow-md transition-all duration-300 hover:scale-[1.02]"
       >
         ← Back to Home
       </a>
@@ -260,7 +260,7 @@ export default async function ShapePage({ params }: { params: { slug: string } }
       <div className="flex flex-col md:flex-row items-center justify-center gap-10 w-full">
         {/* Form */}
         <div className="bg-white rounded-xl shadow-xl p-6 w-full md:w-1/2">
-          <h2 className="text-2xl font-semibold mb-4 capitalize bg-gradient-to-r from-blue-400 via-cyan-300 to-yellow-400 bg-clip-text text-transparent">
+          <h2 className="text-2xl font-semibold mb-4 capitalize text-black">
             {slug.replace(/-/g, " ")} Parameters
           </h2>
           {/* ✅ Client-side Form Component */}
