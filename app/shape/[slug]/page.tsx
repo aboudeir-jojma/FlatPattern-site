@@ -23,8 +23,9 @@ const shapeForms: Record<
   ],
 // ✅ Frustum Cone
 "frustum-cone": [
-  { label: "Large Diameter (D1)", key: "diameter1" },
   { label: "Small Diameter (D2)", key: "diameter2" },
+  { label: "Large Diameter (D1)", key: "diameter1" },
+
   // le champ height/bita sera affiché dynamiquement selon la sélection
 ],
 
