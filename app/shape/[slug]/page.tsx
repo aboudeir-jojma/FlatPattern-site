@@ -211,31 +211,31 @@ const shapeForms: Record<
    🔹 IMAGE MAP PER SHAPE
 ------------------------------------------------- */
 const shapeImages: Record<string, string> = {
-  cone: "/shapes/cone.jpg",
-  "offset-cone": "/shapes/offset-cone.jpg",
-  "frustum-cone": "/shapes/frustum-cone.jpg",
-  "frustum-cone-triangulation": "/shapes/frustum-triangulation.jpg",
-  "frustum-ecc-paral": "/shapes/frustum-ecc-paral.jpg",
-  "frustum-ecc-angle": "/shapes/frustum-ecc-angle.jpg",
-  "truncated-cylinder": "/shapes/truncated-cylinder.jpg",
-  bend: "/shapes/bend.jpg",
-  "rectangle-to-circle": "/shapes/rectangle-circle.jpg",
-  "circle-to-rectangle": "/shapes/circle-rectangle.jpg",
-  "rectangle-to-rectangle": "/shapes/rectangle-rectangle.jpg",
-  "rectangle-to-circle-ecc": "/shapes/rectangle-to-circle-ecc.jpg",
-  pants: "/shapes/pants.jpg",
-  "pants-ecc": "/shapes/pants-ecc.jpg",
-  "pants-2": "/shapes/pants2.jpg",
-  breeches: "/shapes/breeches.jpg",
-  tee: "/shapes/tee.jpg",
-  "tee-eccentric": "/shapes/tee-ecc.jpg",
-  "tee-on-cone": "/shapes/tee-on-cone.jpg",
-  "offset-tee": "/shapes/offset-tee.jpg",
-  "tee-on-bend": "/shapes/tee-on-bend.jpg",
-  pyramid: "/shapes/pyramid.jpg",
-  auger: "/shapes/auger.jpg",
-  sphere: "/shapes/sphere.jpg",
-  flange: "/shapes/flange.jpg",
+  cone: "/shapes/cone2.png",
+  "offset-cone": "/shapes/offset-cone2.png",
+  "frustum-cone": "/shapes/frustum-cone2.png",
+  "frustum-cone-triangulation": "/shapes/frustum-cone-triangulation2.png",
+  "frustum-ecc-paral": "/shapes/frustum-ecc-paral2.png",
+  "frustum-ecc-angle": "/shapes/frustum-ecc-angle2.png",
+  "truncated-cylinder": "/shapes/truncated-cylinder2.png",
+  bend: "/shapes/bend2.png",
+  "rectangle-to-circle": "/shapes/rectangle-to-circle2.png",
+  "circle-to-rectangle": "/shapes/circle-to-rectangle2.png",
+  "rectangle-to-rectangle": "/shapes/rectangle-to-rectangle2.png",
+  "rectangle-to-circle-ecc": "/shapes/rectangle-to-circle-ecc-2.png",
+  pants: "/shapes/pants2.png",
+  "pants-ecc": "/shapes/pants-ecc2.png",
+  "pants-2": "/shapes/pants22.png",
+  breeches: "/shapes/breeches2.png",
+  tee: "/shapes/tee2.png",
+  "tee-eccentric": "/shapes/tee-ecc2.png",
+  "tee-on-cone": "/shapes/tee-on-cone2.png",
+  "offset-tee": "/shapes/offset-tee2.png",
+  "tee-on-bend": "/shapes/tee-on-bend2.png",
+  pyramid: "/shapes/pyramid2.png",
+  auger: "/shapes/auger2.png",
+  sphere: "/shapes/sphere2.png",
+  flange: "/shapes/flange2.png",
 };
 /* -----------------------------------------------
    🔹 PAGE COMPONENT (Server Component)
@@ -269,7 +269,7 @@ export default async function ShapePage({ params }: { params: { slug: string } }
 
         {/* Image */}
         <div className="w-full md:w-1/2 flex justify-center">
-          <img src={imageSrc} alt={slug} className="w-90 h-90 object-contain" />
+          <img src={imageSrc} alt={slug} className="w-100 h-100 object-contain" />
         </div>
       </div>
     </div>

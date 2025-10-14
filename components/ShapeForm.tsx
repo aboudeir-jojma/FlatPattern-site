@@ -12,11 +12,9 @@ export default function ShapeForm({
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-  // 🟢 Détection automatique : local ou production
-  const API_BASE_URL =
-    typeof window !== "undefined" && window.location.hostname === "localhost"
-      ? "http://192.168.100.134:5000" // 👉 backend local
-      : "https://semigeometric-vern-nonmineralogically.ngrok-free.dev"; // 👉 backend prod
+  // 🔗 URL backend Flask
+  const API_URL = "https://flat-pattern-production.up.railway.app/generate_dxf";
+  // const API_URL = "http://127.0.0.1:5000/generate_dxf"; // pour test local
 
   const handleChange = (key: string, value: string) => {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -28,25 +26,30 @@ export default function ShapeForm({
     setMessage("");
 
     try {
-      console.log("🟦 Shape envoyé :", shapeName);
-      console.log("🟨 Params envoyés :", JSON.stringify(values, null, 2));
-      console.log("🌍 URL API utilisée :", `${API_BASE_URL}/generate_dxf`);
+      // ✅ Construire le JSON avec "params"
+      const payload = {
+        shape: shapeName.replace(/-/g, "_"),
+        params: Object.fromEntries(
+          Object.entries(values).map(([k, v]) => [k, parseFloat(v)])
+        ),
+      };
 
-      const response = await fetch(`${API_BASE_URL}/generate_dxf`, {
+      // 🟦 Log clair dans la console
+      console.log("🚀 JSON envoyé au backend:");
+      console.log(JSON.stringify(payload, null, 2));
+
+      const response = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          shape: shapeName.replace(/-/g, "_"), // ex: frustum-cone → frustum_cone
-          params: values,
-        }),
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
-        const errText = await response.text();
-        throw new Error(`Erreur ${response.status} : ${errText}`);
+        const errorText = await response.text();
+        throw new Error(`Erreur ${response.status}: ${errorText}`);
       }
 
-      // 🟩 Si OK → Téléchargement DXF
+      // 🟢 Si succès → téléchargement DXF
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -58,7 +61,7 @@ export default function ShapeForm({
 
       setMessage(`✅ DXF pour ${shapeName} généré avec succès !`);
     } catch (error: any) {
-      console.error("❌ Erreur d’envoi :", error);
+      console.error("❌ Erreur:", error);
       setMessage("❌ Échec de la génération du DXF. Vérifiez le backend.");
     } finally {
       setLoading(false);
@@ -66,34 +69,27 @@ export default function ShapeForm({
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex flex-col gap-4 mt-0 cursor-default"
-    >
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-0 cursor-default">
       {fields.map(({ label, key }, i) => (
-        <div key={i} className="relative">
-          {/* Le label ne capte plus le clic */}
+        <div key={i}>
           <label
             className="block font-medium mb-1 bg-gradient-to-r 
                        from-blue-400 via-cyan-300 to-yellow-400 
-                       bg-clip-text text-transparent pointer-events-none"
+                       bg-clip-text text-transparent"
           >
             {label}
           </label>
-
-          {/* Input cliquable uniquement à l’intérieur */}
-<input
-  type="number"
-  step="any"
-  placeholder={`Enter ${label.toLowerCase()}`}
-  onChange={(e) => handleChange(key, e.target.value)}
-  className="w-full border border-gray-300 rounded-lg px-3 py-2 
-             text-gray-800 placeholder-gray-400
-             focus:outline-none focus:ring-2 focus:ring-blue-400
-             pointer-events-auto appearance-none
-             bg-white autofill:bg-white dark:bg-white"
-  required
-/>
+          <input
+            type="number"
+            step="any"
+            placeholder={`Enter ${label.toLowerCase()}`}
+            onChange={(e) => handleChange(key, e.target.value)}
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 
+                       text-gray-800 placeholder-gray-400
+                       focus:outline-none focus:ring-2 focus:ring-blue-400
+                       appearance-none bg-white"
+            required
+          />
         </div>
       ))}
 
