@@ -1,4 +1,5 @@
-import ShapeForm from "@/components/ShapeForm";
+import React from "react";
+import ClientShapePage from "./ClientShapePage";
 
 /* -----------------------------------------------
    🔹 FORM PARAMETERS LINKED TO BACKEND KEYS
@@ -206,6 +207,12 @@ const shapeForms: Record<
   ],
 };
 
+// Generate static params for all shape slugs
+export function generateStaticParams() {
+  const slugs = Object.keys(shapeForms);
+  return slugs.map(slug => ({ slug }));
+}
+
 /* -----------------------------------------------
    🔹 IMAGE MAP PER SHAPE
 ------------------------------------------------- */
@@ -239,45 +246,12 @@ const shapeImages: Record<string, string> = {
 /* -----------------------------------------------
    🔹 PAGE COMPONENT (Server Component)
 ------------------------------------------------- */
-export default async function ShapePage({ params }: { params: { slug: string } })
-{
+export default function ShapePage({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const fields = shapeForms[slug] || [];
   const imageSrc = shapeImages[slug] || "/shapes/default.jpg";
 
   return (
-    <div className="flex flex-col items-center justify-center gap-10 p-10 mt-12">
-      {/* 🔙 Back Button */}
-      <a
-        href="/"
-        className="self-start mb-6 w-auto px-5 py-2 rounded-lg font-semibold text-white bg-gray-600 shadow-md transition-all duration-300 hover:scale-[1.02]"
-      >
-        ← Back to Home
-      </a>
-
-      {/* 🧾 Form + Image */}
-      <div className="flex flex-col md:flex-row items-center justify-center gap-10 w-full">
-        {/* Form */}
-        <div className="bg-white rounded-xl shadow-xl p-6 w-full md:w-1/2">
-          <h2 className="text-2xl font-semibold mb-4 capitalize text-black">
-            {slug.replace(/-/g, " ")} Parameters
-          </h2>
-          {/* ✅ Client-side Form Component */}
-          <ShapeForm fields={fields} shapeName={slug} />
-        </div>
-
-        {/* Image */}
-        <div className="w-full md:w-1/2 flex justify-center">
-          <img src={imageSrc} alt={slug} className="w-100 h-100 object-contain" />
-        </div>
-      </div>
-    </div>
+    <ClientShapePage slug={slug} fields={fields} imageSrc={imageSrc} />
   );
-}
-
-/* -----------------------------------------------
-   🔹 STATIC GENERATION
-------------------------------------------------- */
-export async function generateStaticParams() {
-  return Object.keys(shapeForms).map((slug) => ({ slug }));
 }

@@ -4,17 +4,23 @@ import React, { useState } from "react";
 export default function ShapeForm({
   fields,
   shapeName,
+  loading,
+  setResult,
+  setDxfBase64,
+  setMessage,
+  setLoading,
 }: {
   fields: { label: string; key: string; type?: string }[];
   shapeName: string;
+  loading: boolean;
+  setResult: React.Dispatch<React.SetStateAction<Record<string, number> | null>>;
+  setDxfBase64: React.Dispatch<React.SetStateAction<string | null>>;
+  setMessage: React.Dispatch<React.SetStateAction<string>>;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const initialValues: Record<string, string> =
     shapeName === "frustum-cone" ? { calc_type: "H" } : {};
   const [values, setValues] = useState<Record<string, string>>(initialValues);
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
-  const [result, setResult] = useState<Record<string, number> | null>(null);
-  const [dxfBase64, setDxfBase64] = useState<string | null>(null);
 
   const API_URL = "https://flat-pattern-production.up.railway.app/generate_dxf";
 
@@ -83,26 +89,6 @@ export default function ShapeForm({
     }
   };
 
-  const handleDownload = () => {
-    if (!dxfBase64) return;
-
-    // Convertir le Base64 en Blob et forcer le téléchargement
-    const byteCharacters = atob(dxfBase64);
-    const byteNumbers = new Array(byteCharacters.length);
-    for (let i = 0; i < byteCharacters.length; i++) {
-      byteNumbers[i] = byteCharacters.charCodeAt(i);
-    }
-    const byteArray = new Uint8Array(byteNumbers);
-    const blob = new Blob([byteArray], { type: "application/dxf" });
-    const url = URL.createObjectURL(blob);
-
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `${shapeName}.dxf`;
-    a.click();
-    URL.revokeObjectURL(url);
-  };
-
   return (
     <div id={shapeName} className="w-full">
       <form
@@ -151,7 +137,7 @@ export default function ShapeForm({
               step="any"
               placeholder={`Enter ${label.toLowerCase()}`}
               onChange={(e) => handleChange(key, e.target.value)}
-              className="w-full border border-black rounded-lg px-3 py-2 
+              className="w-full border border-black rounded-lg px-3 py-2
                          text-black placeholder-black
                          focus:outline-none focus:ring-2 focus:ring-black
                          appearance-none bg-white"
@@ -201,45 +187,8 @@ export default function ShapeForm({
         >
           {loading ? "Generating..." : "Generate"}
         </button>
+   
 
-        {/* 🔹 Message */}
-        {message && (
-          <p
-            className={`text-sm mt-3 text-center ${
-              message.startsWith("✅") ? "text-green-600" : "text-red-600"
-            }`}
-          >
-            {message}
-          </p>
-        )}
-
-        {/* 🔹 Résultats + bouton DXF */}
-        {result && (
-          <div className="mt-4 bg-gray-100 border border-gray-400 rounded-lg p-4 flex justify-between items-center">
-            <div>
-              <h3 className="font-semibold text-lg mb-2 text-black">
-                Résultats :
-              </h3>
-              <ul className="text-black text-sm">
-                {Object.entries(result).map(([key, value]) => (
-                  <li key={key}>
-                    <span className="font-medium">{key}:</span> {value}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* 🟢 Bouton DXF si base64 présent */}
-            {dxfBase64 && (
-              <button
-                onClick={handleDownload}
-                className="bg-gray-700 text-white px-4 py-2 rounded-md font-medium hover:bg-gray-900 transition-all duration-200"
-              >
-                ⬇️ Télécharger DXF
-              </button>
-            )}
-          </div>
-        )}
       </form>
     </div>
   );
