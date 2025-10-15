@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ShapeForm from "@/components/ShapeForm";
 
 interface ClientShapePageProps {
@@ -13,6 +13,16 @@ export default function ClientShapePage({ slug, fields, imageSrc }: ClientShapeP
   const [dxfBase64, setDxfBase64] = useState<string | null>(null);
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+
+  // Generate affichage image path based on slug
+  const affichageImageSrc = `/affichage/${slug}-affichage.png`;
+
+  // Scroll to bottom when result is set
+  useEffect(() => {
+    if (result) {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+  }, [result]);
 
   const handleDownload = () => {
     if (!dxfBase64) return;
@@ -44,7 +54,7 @@ export default function ClientShapePage({ slug, fields, imageSrc }: ClientShapeP
         ← Back to Home
       </a>
 
-      {/* 🧾 Form + Image + Results */}
+      {/* Form and Shape Image at Top */}
       <div className="flex flex-col md:flex-row items-start justify-start gap-10 w-full mt-1">
         {/* Form - Left Column */}
         <div className="bg-white rounded-xl shadow-xl p-6 w-full md:w-1/2">
@@ -63,19 +73,28 @@ export default function ClientShapePage({ slug, fields, imageSrc }: ClientShapeP
           />
         </div>
 
-        {/* Right Column: Image + Results */}
+        {/* Right Column: Shape Image */}
         <div className="w-full md:w-1/2 flex flex-col items-center">
-          {/* Image */}
           <div className="w-full flex justify-center">
             <img src={imageSrc} alt={slug} className="w-full h-auto max-h-96 object-contain" />
           </div>
+        </div>
+      </div>
 
-          {/* Placeholder for Results to prevent layout shift - only when no results */}
-          {!result && <div className="w-full min-h-[150px]"></div>}
+      {/* Affichage Image and Results at Bottom - Only when results are available */}
+      {result && (
+        <div className="flex flex-col md:flex-row items-start justify-start gap-10 w-full mt-10">
+          {/* Left Column: Affichage Image */}
+          <div className="w-full md:w-1/2 flex flex-col items-center">
+            <div className="w-full flex justify-center">
+              <img src={affichageImageSrc} alt={`${slug} affichage`} className="w-full h-auto max-h-96 object-contain" />
+            </div>
+          </div>
 
-          {/* 🔹 Résultats + bouton DXF */}
-          {result && (
-            <div className="w-full bg-white rounded-xl shadow-xl p-6 flex justify-between items-center mt-0">
+          {/* Right Column: Results */}
+          <div className="w-full md:w-1/2 flex flex-col items-center">
+            {/* 🔹 Résultats + bouton DXF */}
+            <div className="w-full bg-white rounded-xl shadow-xl p-6 flex flex-col md:flex-row justify-between items-center mt-0">
               <div>
                 <h3 className="font-semibold text-xl mb-2 text-black">
                   Results:
@@ -93,26 +112,26 @@ export default function ClientShapePage({ slug, fields, imageSrc }: ClientShapeP
               {dxfBase64 && (
                 <button
                   onClick={handleDownload}
-                  className="bg-gray-700 text-white px-4 py-2 rounded-md font-medium hover:bg-gray-900 transition-all duration-200"
+                  className="bg-gray-700 text-white px-4 py-2 rounded-md font-medium hover:bg-gray-900 transition-all duration-200 mt-2"
                 >
                   ⬇️ Download DXF
                 </button>
               )}
             </div>
-          )}
 
-          {/* 🔹 Message - directly below results */}
-          {result && message && (
-            <p
-              className={`text-sm mt-4 flex justify-between ${
-                message.startsWith("✅") ? "text-green-600" : "text-red-600"
-              }`}
-            >
-              {message}
-            </p>
-          )}
+            {/* 🔹 Message - directly below results */}
+            {message && (
+              <p
+                className={`text-sm mt-4 flex justify-between ${
+                  message.startsWith("✅") ? "text-green-600" : "text-red-600"
+                }`}
+              >
+                {message}
+              </p>
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
