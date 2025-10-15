@@ -46,22 +46,19 @@ const shapeForms: Record<
 
   // ✅ Pyramid
   pyramid: [
-    { label: "Base", key: "base" },
-    { label: "Height (H)", key: "height" },
-    { label: "Thickness (t)", key: "thickness" },
-    { label: "Bend Radius (R)", key: "bend_radius" },
-    { label: "K-Factor", key: "k_factor" },
-    { label: "Bend Angle (°)", key: "bend_angle" },
-    { label: "Number of Sides", key: "sides" },
+    { label: "AA", key: "AA" },
+    { label: "AB", key: "AB" },
+    { label: "H", key: "H" },
+  
   ],
 
   // ✅ Rectangle → Rectangle
   "rectangle-to-rectangle": [
-    { label: "Inlet Width (W1)", key: "w1" },
-    { label: "Inlet Height (H1)", key: "h1" },
-    { label: "Outlet Width (W2)", key: "w2" },
-    { label: "Outlet Height (H2)", key: "h2" },
-    { label: "Transition Height", key: "height" },
+    { label: "ab", key: "ab" },
+    { label: "bc", key: "bc" },
+    { label: "H", key: "H" },
+    { label: "AB", key: "AB" },
+    { label: "BC", key: "BC" },
   ],
 
   // ✅ Bend (Elbow)
