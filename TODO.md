@@ -1,5 +1,5 @@
-# TODO for Slug Page Updates
+# TODO for Scroll Fix on Generate
 
-- [x] Modify ClientShapePage.tsx to keep form and shapes image at top, and add affichage image and results at bottom when generated.
-- [x] Add scroll-to-bottom behavior when results are generated (using window.scrollTo).
-- [x] Map the slug to the affichage image path (e.g., `/affichage/${slug}-affichage.png`).
+- [x] Add id="results-section" to the div wrapping the affichage image and results
+- [x] Modify useEffect to scroll to the results-section element instead of bottom of page
+- [x] Keep the intro section (title, description, image) always displayed
