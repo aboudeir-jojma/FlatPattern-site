@@ -98,10 +98,10 @@ export default function ShapeForm({
         {/* 🔹 Frustum Cone → Choix H ou B */}
         {shapeName === "frustum-cone" && (
           <div>
-            <label className="block font-medium mb-1 text-black">
+            <label className="block font-medium mb-1 text-slate-200">
               Choose Calculation Type
             </label>
-            <div className="flex gap-4">
+            <div className="flex gap-4 text-slate-200">
               <label className="flex items-center cursor-pointer">
                 <input
                   type="radio"
@@ -109,7 +109,7 @@ export default function ShapeForm({
                   value="H"
                   checked={values.calc_type === "H"}
                   onChange={(e) => handleChange("calc_type", e.target.value)}
-                  className="mr-2 text-black focus:ring-black"
+                  className="mr-2 accent-slate-200"
                 />
                 Height (H)
               </label>
@@ -120,7 +120,7 @@ export default function ShapeForm({
                   value="B"
                   checked={values.calc_type === "B"}
                   onChange={(e) => handleChange("calc_type", e.target.value)}
-                  className="mr-2 text-black focus:ring-black"
+                  className="mr-2 accent-slate-200"
                 />
                 Bita (B)
               </label>

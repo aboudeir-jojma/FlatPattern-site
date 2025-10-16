@@ -73,6 +73,7 @@ export default function ClientShapePage({ slug, fields, imageSrc }: ClientShapeP
             setLoading={setLoading}
           />
           </div>
+          
         </div>
 
         {/* Right Column: Shape Image */}
@@ -99,15 +100,15 @@ export default function ClientShapePage({ slug, fields, imageSrc }: ClientShapeP
           {/* Right Column: Results */}
           <div className="w-full md:w-1/2 flex flex-col items-center">
             {/* 🔹 Résultats + bouton DXF */}
-            <div className="w-full bg-white rounded-xl shadow-xl p-6 flex flex-col md:flex-row justify-between items-center mt-0 min-h-[28rem]">
+            <div className="w-full bg-slate-900/90 border border-slate-800 rounded-xl shadow-xl p-6 flex flex-col md:flex-row justify-between items-center mt-0 min-h-[28rem] text-slate-200">
               <div>
-                <h3 className="font-semibold text-xl mb-2 text-black">
+                <h3 className="font-semibold text-xl mb-2 text-white">
                   Results:
                 </h3>
-                <ul className="text-black text-base">
+                <ul className="text-slate-200 text-base">
                   {Object.entries(result).map(([key, value]) => (
                     <li key={key}>
-                      <span className="font-medium">{key}:</span> {value}
+                      <span className="font-medium text-white">{key}:</span> {value}
                     </li>
                   ))}
                 </ul>
@@ -117,7 +118,7 @@ export default function ClientShapePage({ slug, fields, imageSrc }: ClientShapeP
               {dxfBase64 && (
                 <button
                   onClick={handleDownload}
-                  className="bg-gray-700 text-white px-4 py-2 rounded-md font-medium hover:bg-gray-900 transition-all duration-200 mt-2"
+                  className="bg-white text-slate-900 px-4 py-2 rounded-md font-medium hover:bg-slate-100 transition-all duration-200 mt-2 border border-slate-300"
                 >
                   ⬇️ Download DXF
                 </button>
