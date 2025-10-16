@@ -25,6 +25,15 @@ export default function ClientShapePage({
   const [loading, setLoading] = useState(false);
   const [showDescription, setShowDescription] = useState(false); // ✅ nouveau
 
+  // Helper function to get unit for a key
+  const getUnit = (key: string): string => {
+    const angleKeys = ["angle", "beta", "bita"];
+    if (angleKeys.some(angleKey => key.toLowerCase().includes(angleKey))) {
+      return "°";
+    }
+    return "mm";
+  };
+
   // ✅ Image affichage dynamique
   const affichageImageSrc = `/affichage/${slug}-affichage.png`;
 
@@ -148,7 +157,7 @@ export default function ClientShapePage({
                   {Object.entries(result).map(([key, value]) => (
                     <li key={key}>
                       <span className="font-medium text-white">{key}:</span>{" "}
-                      {value}
+                      {value} {getUnit(key)}
                     </li>
                   ))}
                 </ul>

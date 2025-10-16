@@ -1,5 +1,4 @@
-# TODO List for Customize Parameters Button Fix
+# TODO: Add Units to Result Values
 
-- [x] Modify the "Customize parameters" link in ClientShapePage.tsx to scroll to the top of the page when clicked
-  - Change href from "#shape-form" to "#"
-  - Add onClick handler to prevent default and scroll to top smoothly
+- [x] Add a helper function in ClientShapePage.tsx to determine the unit for each result key (mm for dimensions, ° for angles).
+- [x] Update the results display in the ul to append the unit after each value.
