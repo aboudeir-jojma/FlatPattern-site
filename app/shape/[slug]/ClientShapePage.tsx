@@ -59,7 +59,7 @@ export default function ClientShapePage({ slug, fields, imageSrc }: ClientShapeP
         {/* Form - Left Column */}
         <div className="w-full md:w-1/2">
           <div className="bg-slate-900/90 border border-slate-800 rounded-2xl shadow-2xl p-5 md:p-6 sticky top-4">
-            <h2 className="text-xl md:text-2xl font-semibold mb-4 capitalize text-white tracking-tight">
+            <h2 className="text-xl md:text-2xl font-semibold mb-4 capitalize text-orange-500 tracking-tight">
               {slug.replace(/-/g, " ")} parameters
             </h2>
           {/* ✅ Client-side Form Component */}
@@ -102,7 +102,7 @@ export default function ClientShapePage({ slug, fields, imageSrc }: ClientShapeP
             {/* 🔹 Résultats + bouton DXF */}
             <div className="w-full bg-slate-900/90 border border-slate-800 rounded-xl shadow-xl p-6 flex flex-col md:flex-row justify-between items-center mt-0 min-h-[28rem] text-slate-200">
               <div>
-                <h3 className="font-semibold text-xl mb-2 text-white">
+                <h3 className="font-semibold text-xl mb-2 text-orange-500">
                   Results:
                 </h3>
                 <ul className="text-slate-200 text-base">
