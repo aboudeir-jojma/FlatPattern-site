@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-[#2E2E2E] text-white text-center py-6 ">
+    <footer className="bg-slate-900/90 border-t border-slate-800 text-white text-center py-6 ">
       <p className="text-sm">
         © {new Date().getFullYear()} Flat Pattern — All Rights Reserved
       </p>

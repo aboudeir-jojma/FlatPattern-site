@@ -2,7 +2,7 @@
 export default function SeoSection() {
   return (
     <section className="relative overflow-hidden bg-white text-black py-16 px-6 border-b border-gray-300">
-      <div className="max-w-5xl mx-auto text-left">
+      <div className="w-4/5 max-w-9xl mx-auto text-left">
         <h1 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
           Online DXF Flat Pattern Generator – Flat Pattern
         </h1>

@@ -3,10 +3,10 @@ export default function Navbar() {
 <nav
   className="
     fixed top-0 left-0 w-full
-    bg-[#2E2E2E]
+    bg-slate-900/90 border-b border-slate-800
     text-white shadow-lg z-50
     flex justify-center items-center
-    py-4 px-6 backdrop-blur-sm border-b border-gray-500
+    py-4 px-6 backdrop-blur-sm
   "
 >
       <h1 className="
