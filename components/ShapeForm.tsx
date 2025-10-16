@@ -131,58 +131,78 @@ export default function ShapeForm({
         {/* 🔹 Champs principaux */}
         {fields.map(({ label, key }, i) => (
           <div key={i}>
-            <label className="block font-medium mb-1 text-black">{label}</label>
-            <input
-              type="number"
-              step="any"
-              placeholder={`Enter ${label.toLowerCase()}`}
-              onChange={(e) => handleChange(key, e.target.value)}
-              className="w-full border border-black rounded-lg px-3 py-2
-                         text-black placeholder-black
-                         focus:outline-none focus:ring-2 focus:ring-black
-                         appearance-none bg-white"
-              required
-            />
+            <label className="block font-medium mb-1 text-slate-200">{label}</label>
+            <div className="relative">
+              <input
+                type="number"
+                step="any"
+                placeholder={`Enter ${label.toLowerCase()}`}
+                onChange={(e) => handleChange(key, e.target.value)}
+                className="w-full border border-slate-700 rounded-lg pl-3 pr-14 py-2
+                           text-slate-100 placeholder-slate-400 bg-slate-800/60
+                           focus:outline-none focus:ring-2 focus:ring-slate-400"
+                required
+              />
+              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm select-none">mm</span>
+            </div>
           </div>
         ))}
 
         {/* 🔹 Champs dynamiques */}
         {shapeName === "frustum-cone" && values.calc_type === "H" && (
           <div>
-            <label className="block font-medium mb-1 text-black">Height (H)</label>
-            <input
-              type="number"
-              step="any"
-              placeholder="Enter height (H)"
-              onChange={(e) => handleChange("height", e.target.value)}
-              className="w-full border border-black rounded-lg px-3 py-2 text-black
-                         focus:outline-none focus:ring-2 focus:ring-black bg-white"
-              required
-            />
+            <label className="block font-medium mb-1 text-slate-200">Height (H)</label>
+            <div className="relative">
+              <input
+                type="number"
+                step="any"
+                placeholder="Enter height (H)"
+                onChange={(e) => handleChange("height", e.target.value)}
+                className="w-full border border-slate-700 rounded-lg pl-3 pr-14 py-2 text-slate-100 bg-slate-800/60
+                           focus:outline-none focus:ring-2 focus:ring-slate-400"
+                required
+              />
+              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm select-none">mm</span>
+            </div>
           </div>
         )}
 
         {shapeName === "frustum-cone" && values.calc_type === "B" && (
           <div>
-            <label className="block font-medium mb-1 text-black">Bita (B)</label>
-            <input
-              type="number"
-              step="any"
-              placeholder="Enter bita (B)"
-              onChange={(e) => handleChange("bita", e.target.value)}
-              className="w-full border border-black rounded-lg px-3 py-2 text-black
-                         focus:outline-none focus:ring-2 focus:ring-black bg-white"
-              required
-            />
+            <label className="block font-medium mb-1 text-slate-200">Bita (B)</label>
+            <div className="relative">
+              <input
+                type="number"
+                step="any"
+                placeholder="Enter bita (B)"
+                onChange={(e) => handleChange("bita", e.target.value)}
+                className="w-full border border-slate-700 rounded-lg pl-3 pr-14 py-2 text-slate-100 bg-slate-800/60
+                           focus:outline-none focus:ring-2 focus:ring-slate-400"
+                required
+              />
+              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm select-none">mm</span>
+            </div>
           </div>
         )}
+
+        {/* Optional checkboxes (visual only)
+        <div className="mt-1 flex flex-col gap-2 text-slate-200">
+          <label className="inline-flex items-center gap-3">
+            <input type="checkbox" className="h-4 w-4 accent-slate-200" />
+            <span>Overlap (25mm)</span>
+          </label>
+          <label className="inline-flex items-center gap-3">
+            <input type="checkbox" className="h-4 w-4 accent-slate-200" />
+            <span>Center lines</span>
+          </label>
+        </div> */}
 
         {/* 🔘 Bouton Generate */}
         <button
           type="submit"
           disabled={loading}
           className="mt-4 py-2.5 rounded-lg font-semibold text-white
-                     bg-gray-600 shadow-md transition-all duration-300
+                     bg-slate-700 shadow-md transition-all duration-300
                      hover:scale-[1.02] disabled:opacity-70"
         >
           {loading ? "Generating..." : "Generate"}
