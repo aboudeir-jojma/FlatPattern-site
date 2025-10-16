@@ -37,12 +37,14 @@ const shapeForms: Record<
     { label: "Number of Divisions", key: "divisions" },
   ],
 
-  // ✅ Truncated Cylinder
-  "truncated-cylinder": [
-    { label: "Cylinder Diameter (D)", key: "diameter" },
-    { label: "Cylinder Height (H)", key: "height" },
-    { label: "Cut Angle (°)", key: "angle" },
-  ],
+// ✅ Truncated Cylinder
+"truncated-cylinder": [
+  { label: "Cylinder Diameter (D)", key: "diameter" },
+  { label: "Cylinder Height (H)", key: "height" },
+  { label: "Cut Angle (°)", key: "angle" },
+  { label: "Number of Segments (n)", key: "n" },
+],
+
 
   // ✅ Pyramid
   pyramid: [
@@ -69,13 +71,18 @@ const shapeForms: Record<
     { label: "Divisions", key: "divisions" },
   ],
 
-  // ✅ Flange
-  flange: [
-    { label: "Outer Diameter (D1)", key: "outer_d" },
-    { label: "Inner Diameter (D2)", key: "inner_d" },
-    { label: "Number of Holes", key: "holes" },
-    { label: "Hole Diameter", key: "hole_d" },
-  ],
+// ✅ Flange
+flange: [
+  { label: "Outer Diameter (D1)", key: "D1" },
+  { label: "Inner Diameter (D2)", key: "D2" },
+  { label: "Outer Circle Distance (D3)", key: "D3" },
+  { label: "Inner Circle Distance (D4)", key: "D4" },
+  { label: "Number of Outer Holes (N1)", key: "N1" },
+  { label: "Outer Hole Diameter (d1)", key: "d1" },
+  { label: "Number of Inner Holes (N2)", key: "N2" },
+  { label: "Inner Hole Diameter (d2)", key: "d2" },
+],
+
 
   // ✅ Frustum Eccentric Parallel
   "frustum-ecc-paral": [

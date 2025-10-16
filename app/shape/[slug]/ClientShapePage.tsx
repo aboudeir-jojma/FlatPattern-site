@@ -201,7 +201,11 @@ export default function ClientShapePage({
             )}
 
             <a
-              href="#shape-form"
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
               className="inline-flex items-center gap-2 bg-orange-500 text-white font-semibold px-5 py-3 rounded-md shadow-md transition-all hover:bg-orange-600 hover:shadow-lg"
             >
               Customize parameters
