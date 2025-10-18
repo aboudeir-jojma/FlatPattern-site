@@ -286,129 +286,154 @@ const shapeMeta: Record<string, { title: string; description: string }> = {
   cone: {
     title: "Cone",
     description:
-      "A sheet metal cone is a conical structure crafted from a flat sheet of metal. It is commonly used in various industrial applications, including ductwork, funnels, and hoppers. The manufacturing process involves cutting a precise, sector-shaped piece of metal, which is then rolled and joined to form the cone shape. This process can be achieved through welding, riveting, or other joining methods.Sheet metal cones are valued for their versatility, strength, and durability. They can be made from various metals such as aluminum, stainless steel, and galvanized steel, each offering specific advantages like corrosion resistance or lightweight properties. The design of the cone can be customized to meet specific requirements, including dimensions and thickness, depending on the intended use. In addition to industrial applications, sheet metal cones are also used in art, architecture, and design, showcasing their broad utility and adaptability.",
+      "A sheet metal cone is a conical structure crafted from a flat sheet of metal. It is commonly used in various industrial applications, including ductwork, funnels, and hoppers. The manufacturing process involves cutting a precise, sector-shaped piece of metal, which is then rolled and joined to form the cone shape. This process can be achieved through welding, riveting, or other joining methods. Sheet metal cones are valued for their versatility, strength, and durability. They can be made from aluminum, stainless steel, or galvanized steel, each offering specific advantages like corrosion resistance or lightweight properties. Cones are essential in HVAC systems, ventilation, and material transport, and their flat pattern can be generated accurately for laser cutting and DXF fabrication.",
   },
+
   "offset-cone": {
     title: "Offset Cone",
     description:
-      "Generate an eccentric cone where the apex is shifted from center. Useful for transitions with offset axes.",
+      "An offset cone, also called an eccentric cone, is a sheet metal shape where the apex is shifted from the centerline. This geometry is used for transitions between pipes or ducts with misaligned axes. The flat pattern is developed by projecting the eccentric profile, allowing accurate cutting and bending during fabrication. Offset cones are widely used in ventilation ducts, exhaust systems, and process piping. They can be produced from mild steel, stainless steel, or aluminum, and are ideal for applications requiring smooth airflow transitions with minimal turbulence.",
   },
+
   "frustum-cone": {
     title: "Frustum Cone",
     description:
-      "Flat pattern for a truncated cone using large/small diameters with height or cone angle.",
+      "A frustum cone, also known as a truncated cone, is created by cutting the top of a cone parallel to its base. It is one of the most common shapes in sheet metal fabrication, used for hoppers, reducers, nozzles, and dust collectors. The flat pattern of a truncated cone is a sector of an annulus calculated from the large and small diameters and the cone height or angle. This development is essential in DXF sheet metal design for accurate laser cutting, ensuring perfect fit-up during assembly or welding.",
   },
+
   "frustum-cone-triangulation": {
     title: "Frustum Cone (Triangulation)",
     description:
-      "Triangulated development for high accuracy with optional divisions for layout.",
+      "A frustum cone developed through triangulation offers superior accuracy in fabrication. The surface is divided into small triangles to precisely calculate each segment’s true length. This method is used for complex cones or when exact curvature is required in large industrial ducts or architectural elements. It provides detailed DXF layouts for laser cutting, improving assembly precision and minimizing welding distortion in sheet metal fabrication.",
   },
+
   "frustum-ecc-paral": {
     title: "Frustum Eccentric (Parallel)",
     description:
-      "Eccentric truncated cone with parallel axes and X/Y offsets.",
+      "A parallel eccentric frustum cone connects two circular sections of different diameters with parallel but offset axes. It is used for ducts, reducers, and pipeline transitions where centers are misaligned but parallel. The flat pattern is derived using geometric projection methods to achieve an accurate layout. This type of sheet metal part is widely employed in industrial ventilation, energy plants, and process industries, ensuring smooth flow with minimal pressure loss.",
   },
+
   "frustum-ecc-angle": {
     title: "Frustum Eccentric (Angular)",
     description:
-      "Eccentric truncated cone where the branch is angled relative to the main axis.",
+      "An angular eccentric frustum is a truncated cone where the branch or outlet is angled relative to the main axis. It is often used in piping systems and HVAC branches where angular transitions are required. The sheet metal pattern is calculated based on the offset angle, providing a precise DXF development for fabrication. This shape is particularly useful in constrained layouts or custom ducting where direction changes are integrated within the reducer component.",
   },
+
   "truncated-cylinder": {
     title: "Truncated Cylinder",
     description:
-      "Cylinder cut by an oblique plane. Provide diameter and cut angle to get the wrap development.",
+      "A truncated cylinder is a cylindrical section cut by an oblique plane. Its flat pattern represents the true shape of the slanted surface, used in tanks, chimneys, and pressure vessels. By providing the cylinder diameter, height, and cut angle, fabricators can generate an accurate DXF layout for laser or plasma cutting. Truncated cylinders are essential in architectural metalwork and industrial duct transitions requiring smooth directional flow or inclined joints.",
   },
+
   bend: {
     title: "Bend (Elbow)",
     description:
-      "Segmented pipe bend by given angle, radius and number of divisions for fabrication.",
+      "A sheet metal elbow or bend is formed by connecting a series of cylindrical segments to achieve a desired bend angle and radius. This shape is essential in ducting, piping, and exhaust systems where smooth direction changes are needed. The flat pattern is developed by dividing the bend into equal segments and projecting each profile. Accurate DXF layouts ensure easy fabrication and assembly of elbows in steel, stainless steel, or aluminum.",
   },
+
   "rectangle-to-circle": {
     title: "Rectangle → Circle",
     description:
-      "Transition piece from rectangular to circular section with adjustable height.",
+      "The rectangle-to-circle transition connects a rectangular duct to a circular pipe. It is widely used in HVAC systems, industrial ventilation, and exhaust lines. The flat pattern is created by interpolating between the rectangle and circle profiles, ensuring a smooth transformation. This component reduces airflow turbulence and improves efficiency. Fabricators can generate accurate DXF developments for laser cutting and assembly alignment.",
   },
+
   "circle-to-rectangle": {
     title: "Circle → Rectangle",
     description:
-      "Circular to rectangular transition for ducts and ventilation components.",
+      "A circle-to-rectangle transition is the reverse of the rectangle-to-circle, used to connect circular pipes to rectangular ducts. It is vital in HVAC design, dust collection systems, and material conveyors. The shape is calculated to maintain equal surface area and smooth airflow. Its DXF flat pattern provides precision during laser cutting, bending, and welding of sheet metal parts.",
   },
+
   "rectangle-to-rectangle": {
     title: "Rectangle → Rectangle",
     description:
-      "Rectangular transition with different inlet/outlet sizes and height.",
+      "A rectangular transition connects two rectangular sections of different dimensions or orientations. It is used in ductwork and hoppers where inlet and outlet sizes vary. The sheet metal pattern is generated by unfolding the four connecting faces based on width, height, and length parameters. The DXF output ensures exact fit during fabrication and reduces waste in laser cutting operations.",
   },
+
   "rectangle-to-circle-ecc": {
     title: "Rectangle → Circle (Eccentric)",
     description:
-      "Eccentric rectangle to circle transition including offset control.",
+      "An eccentric rectangle-to-circle transition features a circular outlet offset from the rectangle’s center. This geometry is used in systems where the circular duct does not align with the rectangular inlet. It requires precise development using projection techniques to maintain a smooth transition. DXF flat patterns allow manufacturers to cut, roll, and weld the parts with high accuracy.",
   },
+
   pants: {
     title: "Y-Branch (Pants)",
     description:
-      "Symmetric Y-branch joining one inlet to two outlets at a set angle.",
+      "A Y-branch, also called a pants fitting, connects one main duct or pipe into two equal branches at a specified angle. Common in air distribution and exhaust systems, it ensures balanced flow and minimal resistance. The flat pattern is computed by intersecting cylindrical surfaces and flattening the development for DXF export. Made from galvanized steel, stainless steel, or aluminum, Y-branches are crucial in HVAC and industrial ventilation networks.",
   },
+
   "pants-ecc": {
     title: "Y-Branch Eccentric",
     description:
-      "Asymmetric branch with offset between main and branch centerlines.",
+      "An eccentric Y-branch divides a main pipe into two branches with offset or unequal centerlines. This configuration allows for custom duct routing or flow optimization. The sheet metal layout involves complex intersection geometry, triangulated to create accurate DXF developments. Used in dust extraction systems, process plants, and industrial exhausts, it provides smooth flow transitions with minimal pressure loss.",
   },
+
   "pants-2": {
     title: "Y-Branch 2 (Asymmetric)",
     description:
-      "Two different branch diameters and a configurable included angle.",
+      "An asymmetric Y-branch connects one main inlet to two outlets with different diameters or unequal angles. This shape is often required in custom duct installations or process piping systems. Its triangulated flat pattern ensures precision during fabrication, minimizing fit-up errors and welding adjustments. The DXF development enables accurate cutting, saving time and material during production.",
   },
+
   breeches: {
     title: "Double Y (Breeches)",
     description:
-      "Dual-branch connection for splitting a main pipeline into two.",
+      "A breeches piece, or double Y-branch, connects a single inlet to two symmetric or asymmetric outlets. Common in HVAC, dust collection, and ventilation, it divides airflow evenly between two paths. The sheet metal flat pattern is developed by combining two Y-branches into one model. DXF layouts help manufacturers achieve consistent accuracy for laser cutting and assembly.",
   },
+
   tee: {
     title: "Tee",
     description:
-      "Orthogonal tee connection; set diameters, angle and intersection height.",
+      "A tee fitting connects a branch pipe at a right angle to the main pipe. It is widely used in HVAC, water distribution, and process piping. The sheet metal development involves calculating the intersection curve between two cylinders. The resulting DXF flat pattern provides an accurate template for laser cutting, ensuring perfect joint alignment during welding or assembly.",
   },
+
   "tee-eccentric": {
     title: "Tee Eccentric",
     description:
-      "Tee with eccentric branch position for offset hookups.",
+      "An eccentric tee is similar to a standard tee but with the branch offset from the main pipe’s centerline. This configuration allows for smoother flow or alignment with existing duct layouts. The flat pattern is generated from the true intersection curve, providing a precise DXF for fabrication. Ideal for exhaust, ventilation, and fluid systems requiring non-symmetric connections.",
   },
+
   "tee-on-cone": {
     title: "Tee on Cone",
     description:
-      "Branch connection intersecting a conical surface.",
+      "A tee on cone represents a cylindrical branch intersecting a conical surface. It is used in hoppers, cyclone separators, and dust extraction units. The intersection curve is geometrically complex and requires triangulated development to generate an accurate DXF pattern. This shape is critical in custom metal fabrication where precision fit and weld quality are essential.",
   },
+
   "offset-tee": {
     title: "Offset Tee",
     description:
-      "Main and branch with defined eccentricity and connection angle.",
+      "An offset tee connects a branch pipe to a main pipe with both angular and parallel offsets. It allows flexible routing in constrained environments. The flat pattern is produced using triangulated projections to capture the true surface geometry. Offset tees are common in chemical plants, refineries, and ventilation systems where space optimization and fluid dynamics matter.",
   },
+
   "tee-on-bend": {
     title: "Tee on Bend",
     description:
-      "Branch intersecting a curved elbow; specify bend radius and angle.",
+      "A tee on bend connects a branch pipe onto a curved elbow section. It is a challenging geometry involving double curvature. The DXF flat pattern is calculated through triangulation and projection techniques to maintain precise intersection fit. Used in high-performance piping, ventilation, and exhaust systems, this shape ensures seamless connections and efficient fabrication.",
   },
+
   pyramid: {
     title: "Pyramid",
     description:
-      "Four-sided pyramid development using base edges and height.",
+      "A sheet metal pyramid is a four-sided tapered structure with a square or rectangular base. It is commonly used in architectural cladding, hoppers, and decorative metalwork. The flat pattern consists of four triangular faces unfolded from the apex. DXF layouts allow for precision cutting and easy assembly by welding or bending, making pyramids a versatile component in fabrication and design.",
   },
+
   auger: {
     title: "Auger (Helix)",
     description:
-      "Helical flight layout from outer/inner diameters, pitch and length.",
+      "An auger or helical flight is a spiral blade used in conveyors, feeders, and mixers. The sheet metal flat pattern is generated from the outer and inner diameters, pitch, and number of turns. Augers are critical in material handling systems for transporting powders, grains, or liquids. Accurate DXF layouts simplify fabrication, ensuring consistent pitch and smooth performance.",
   },
+
   sphere: {
     title: "Sphere",
     description:
-      "Gore-based spherical layout from overall diameter.",
+      "A sphere in sheet metal is developed into multiple gores or petal-shaped segments that form a full spherical surface when assembled. This design is used for decorative domes, tanks, and artistic sculptures. The flat pattern of each gore is calculated based on the sphere’s diameter and number of divisions. DXF developments enable high precision in cutting and forming operations for architectural and industrial use.",
   },
+
   flange: {
     title: "Flange",
     description:
-      "Bolt circle layout with inner/outer diameters, hole size and count.",
+      "A sheet metal flange is a circular component featuring an inner and outer diameter with evenly spaced bolt holes. It serves as a connection element between pipes, valves, or equipment. The flat pattern layout is defined by the bolt circle diameter, hole size, and number of holes. Flanges are typically made from stainless steel, aluminum, or carbon steel and are essential in mechanical, plumbing, and industrial fabrication. The DXF pattern ensures precise drilling and cutting for perfect assembly fit.",
   },
 };
+
 
 // Fallback defaults for any missing slug keys
 Object.keys(shapeImages).forEach((slug) => {
