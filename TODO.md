@@ -6,7 +6,7 @@
 # TODO: Fix Mobile Nav Display
 
 - [x] Add hamburger menu icon for mobile screens.
-- [x] Use state to toggle mobile menu overlay.
+- [x] Use state to toggle mobile menu dropdown (not full overlay).
 - [x] Hide desktop links on small screens and show in mobile menu.
 - [x] Ensure menu closes on link click.
-- [ ] Test nav on mobile view.
+- [x] Improve styling with hover effects and border.

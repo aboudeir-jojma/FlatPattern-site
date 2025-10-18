@@ -31,7 +31,7 @@ export default function Navbar() {
           fixed top-0 left-0 w-full
           bg-slate-900/90 border-b border-slate-800
           text-white shadow-lg z-50
-          py-5 px-6 backdrop-blur-sm
+          py-5 px-6 backdrop-blur-sm relative
         "
       >
         <div className="w-4/5 max-w-7xl mx-auto flex items-center justify-between">
@@ -75,29 +75,26 @@ export default function Navbar() {
             </svg>
           </button>
         </div>
-      </nav>
-      {/* Mobile Menu Overlay */}
-      {isOpen && (
-        <div className="fixed inset-0 z-40 md:hidden">
-          <div className="absolute inset-0 bg-black bg-opacity-50" onClick={() => setIsOpen(false)}></div>
-          <div className="relative bg-slate-900 text-white p-6 pt-20">
-            <div className="flex flex-col space-y-4">
-              <a href="/" className="text-lg" onClick={() => handleLinkClick("/")}>
+        {/* Mobile Menu Dropdown */}
+        {isOpen && (
+          <div className="absolute top-full left-0 w-full bg-slate-900 text-white shadow-lg border-t border-slate-800 md:hidden">
+            <div className="flex flex-col space-y-4 p-6">
+              <a href="/" className="text-lg hover:text-orange-500" onClick={() => handleLinkClick("/")}>
                 Home
               </a>
-              <a href="#top" className="text-lg" onClick={() => handleLinkClick("#top")}>
+              <a href="#top" className="text-lg hover:text-orange-500" onClick={() => handleLinkClick("#top")}>
                Privacy
               </a>
-              <a href="#pricing" className="text-lg" onClick={() => handleLinkClick("#pricing")}>
+              <a href="#pricing" className="text-lg hover:text-orange-500" onClick={() => handleLinkClick("#pricing")}>
                Terms
               </a>
-              <a href="#footer" className="text-lg" onClick={() => handleLinkClick("#footer")}>
+              <a href="#footer" className="text-lg hover:text-orange-500" onClick={() => handleLinkClick("#footer")}>
                 Contact
               </a>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </nav>
     </>
   );
 }
