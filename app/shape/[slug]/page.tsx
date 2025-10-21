@@ -4,30 +4,27 @@ import ClientShapePage from "./ClientShapePage";
 /* -----------------------------------------------
    🔹 FORM PARAMETERS LINKED TO BACKEND KEYS
 ------------------------------------------------- */
-const shapeForms: Record<
-  string,
-  { label: string; key: string }[]
-> = {
+const shapeForms: Record<string, { label: string; key: string }[]> = {
   // ✅ Cone
   cone: [
-    { label: "Base Diameter (D1)", key: "diameter" },
-    { label: "Apex Height (H)", key: "height" },
+    { label: "Base Diameter (D)", key: "diameter" },
+    { label: "Height (H)", key: "height" },
   ],
 
   // ✅ Offset Cone
   "offset-cone": [
-    { label: "Large Diameter (D1)", key: "diameter1" },
-    { label: "Small Diameter (D2)", key: "diameter2" },
-    { label: "Height (H)", key: "height" },
-    { label: "Offset (Eccentricity)", key: "offset" },
+    { label: "Base Diameter (D)", key: "D" },
+    { label: "Height (H)", key: "H" },
+    { label: "Offset (X)", key: "X" },
+    { label: "Number of Divisions (n)", key: "n" },
   ],
-// ✅ Frustum Cone
-"frustum-cone": [
-  { label: "Small Diameter (D2)", key: "diameter2" },
-  { label: "Large Diameter (D1)", key: "diameter1" },
 
-  // le champ height/bita sera affiché dynamiquement selon la sélection
-],
+  // ✅ Frustum Cone
+  "frustum-cone": [
+    { label: "Small Diameter (D2)", key: "diameter2" },
+    { label: "Large Diameter (D1)", key: "diameter1" },
+    // le champ height/bita sera affiché dynamiquement selon la sélection
+  ],
 
   // ✅ Frustum Cone (Triangulation)
   "frustum-cone-triangulation": [
@@ -37,30 +34,28 @@ const shapeForms: Record<
     { label: "Number of Divisions", key: "divisions" },
   ],
 
-// ✅ Truncated Cylinder
-"truncated-cylinder": [
-  { label: "Cylinder Diameter (D)", key: "diameter" },
-  { label: "Cylinder Height (H)", key: "height" },
-  { label: "Cut Angle (°)", key: "angle" },
-  { label: "Number of Segments (n)", key: "n" },
-],
-
+  // ✅ Truncated Cylinder
+  "truncated-cylinder": [
+    { label: "Cylinder Diameter (D)", key: "diameter" },
+    { label: "Cylinder Height (H)", key: "height" },
+    { label: "Cut Angle (°)", key: "angle" },
+    { label: "Number of Segments (n)", key: "n" },
+  ],
 
   // ✅ Pyramid
   pyramid: [
-    { label: "AA", key: "AA" },
-    { label: "AB", key: "AB" },
-    { label: "H", key: "H" },
-  
+    { label: "Base Side (AA)", key: "AA" },
+    { label: "Top Side (AB)", key: "AB" },
+    { label: "Height (H)", key: "H" },
   ],
 
   // ✅ Rectangle → Rectangle
   "rectangle-to-rectangle": [
-    { label: "ab", key: "ab" },
-    { label: "bc", key: "bc" },
-    { label: "H", key: "H" },
-    { label: "AB", key: "AB" },
-    { label: "BC", key: "BC" },
+    { label: "Bottom Length (ab)", key: "ab" },
+    { label: "Bottom Width (bc)", key: "bc" },
+    { label: "Height (H)", key: "H" },
+    { label: "Top Length (AB)", key: "AB" },
+    { label: "Top Width (BC)", key: "BC" },
   ],
 
   // ✅ Bend (Elbow)
@@ -71,18 +66,17 @@ const shapeForms: Record<
     { label: "Divisions", key: "divisions" },
   ],
 
-// ✅ Flange
-flange: [
-  { label: "Outer Diameter (D1)", key: "D1" },
-  { label: "Inner Diameter (D2)", key: "D2" },
-  { label: "Outer Circle Distance (D3)", key: "D3" },
-  { label: "Inner Circle Distance (D4)", key: "D4" },
-  { label: "Number of Outer Holes (N1)", key: "N1" },
-  { label: "Outer Hole Diameter (d1)", key: "d1" },
-  { label: "Number of Inner Holes (N2)", key: "N2" },
-  { label: "Inner Hole Diameter (d2)", key: "d2" },
-],
-
+  // ✅ Flange
+  flange: [
+    { label: "Outer Diameter (D1)", key: "D1" },
+    { label: "Inner Diameter (D2)", key: "D2" },
+    { label: "Outer Circle Distance (D3)", key: "D3" },
+    { label: "Inner Circle Distance (D4)", key: "D4" },
+    { label: "Number of Outer Holes (N1)", key: "N1" },
+    { label: "Outer Hole Diameter (d1)", key: "d1" },
+    { label: "Number of Inner Holes (N2)", key: "N2" },
+    { label: "Inner Hole Diameter (d2)", key: "d2" },
+  ],
 
   // ✅ Frustum Eccentric Parallel
   "frustum-ecc-paral": [
@@ -103,27 +97,31 @@ flange: [
 
   // ✅ Rectangle → Circle
   "rectangle-to-circle": [
-    { label: "Rectangle Width (W)", key: "rect_width" },
-    { label: "Rectangle Height (H)", key: "rect_height" },
-    { label: "Circle Diameter (D)", key: "circle_diameter" },
-    { label: "Transition Height", key: "height" },
+    { label: "Circle Diameter (D)", key: "D" },
+    { label: "Height (H)", key: "H" },
+    { label: "Rectangle Length (A)", key: "A" },
+    { label: "Rectangle Width (B)", key: "B" },
+    { label: "Number of Divisions (n)", key: "n" },
   ],
 
   // ✅ Circle → Rectangle
   "circle-to-rectangle": [
-    { label: "Circle Diameter (D)", key: "circle_diameter" },
-    { label: "Rectangle Width (W)", key: "rect_width" },
-    { label: "Rectangle Height (H)", key: "rect_height" },
-    { label: "Transition Height", key: "height" },
+    { label: "Circle Diameter (D)", key: "D" },
+    { label: "Height (H)", key: "H" },
+    { label: "Rectangle Length (A)", key: "A" },
+    { label: "Rectangle Width (B)", key: "B" },
+    { label: "Number of Divisions (n)", key: "n" },
   ],
 
   // ✅ Rectangle → Circle Eccentric
   "rectangle-to-circle-ecc": [
-    { label: "Rectangle Width (W)", key: "rect_width" },
-    { label: "Rectangle Height (H)", key: "rect_height" },
-    { label: "Circle Diameter (D)", key: "circle_diameter" },
-    { label: "Transition Height", key: "height" },
-    { label: "Eccentricity (Offset)", key: "offset" },
+    { label: "Circle Diameter (D)", key: "D" },
+    { label: "Height (H)", key: "H" },
+    { label: "Rectangle Length (A)", key: "A" },
+    { label: "Rectangle Width (B)", key: "B" },
+    { label: "Offset X (X)", key: "X" },
+    { label: "Offset Y (Y)", key: "Y" },
+    { label: "Number of Divisions (n)", key: "n" },
   ],
 
   // ✅ Pants (Y-branch symmetric)
@@ -208,7 +206,9 @@ flange: [
 
   // ✅ Sphere
   sphere: [
-    { label: "Sphere Diameter (D)", key: "diameter" },
+    { label: "Sphere Diameter (D)", key: "D" },
+    { label: "Number of Meridians (N)", key: "N" },
+    { label: "Number of Parallels (n)", key: "n" },
   ],
 };
 
