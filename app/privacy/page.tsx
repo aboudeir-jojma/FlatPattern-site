@@ -1,7 +1,7 @@
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-[#f9fafb] text-gray-800 py-20 px-6">
-      <div className="w-4/5 mx-auto">
+    <div className="min-h-screen bg-[#f9fafb] text-gray-800 py-10 px-4 md:py-20 md:px-6">
+      <div className="w-full md:w-4/5 mx-auto">
         
 
         {/* Privacy Highlights Section */}
