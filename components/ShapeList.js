@@ -57,7 +57,7 @@ export default function ShapeList() {
             className="relative flex flex-col items-center justify-end bg-white rounded-xl shadow hover:shadow-2xl hover:scale-105 transition-all duration-300 p-5 cursor-pointer h-56 overflow-hidden"
           >
             {/* 🖼️ Image centrée derrière le contenu */}
-            <div className="absolute inset-0 flex items-center justify-center z-0">
+            <div className="absolute top-0 left-0 right-0 bottom-16 md:inset-0 flex items-center justify-center z-0">
               <img
                 src={shape.img}
                 alt={shape.name}
