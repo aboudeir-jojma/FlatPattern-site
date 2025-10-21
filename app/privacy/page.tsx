@@ -1,41 +1,87 @@
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-white text-black py-20 px-6">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-6 text-center">Privacy Policy</h1>
-        <p className="text-sm text-gray-600 mb-8 text-center">Last updated: October 21, 2025</p>
+    <div className="min-h-screen bg-[#f9fafb] text-gray-800 py-20 px-6">
+      <div className="w-4/5 mx-auto">
+        <h1 className="text-5xl font-bold mb-6 text-center text-orange-500">Privacy Policy</h1>
+        <p className="text-sm text-gray-600 mb-12 text-center">Last updated: October 21, 2025</p>
+
+        {/* Privacy Highlights Section */}
+        <section className="w-full bg-white py-16 mb-16 rounded-3xl shadow-md">
+          <div className="w-4/5 mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Privacy Highlights</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="bg-[#f4f5f7] border border-gray-200 rounded-2xl p-10 text-center flex flex-col items-center justify-center gap-4 min-h-[260px]">
+                <div className="text-5xl">🔒</div>
+                <h3 className="text-2xl font-semibold text-gray-800">Data Security</h3>
+                <p className="max-w-[40ch] text-gray-600">We prioritize the security of your personal data with industry-standard protections.</p>
+              </div>
+              <div className="bg-[#f4f5f7] border border-gray-200 rounded-2xl p-10 text-center flex flex-col items-center justify-center gap-4 min-h-[260px]">
+                <div className="text-5xl">👁️</div>
+                <h3 className="text-2xl font-semibold text-gray-800">Transparency</h3>
+                <p className="max-w-[40ch] text-gray-600">Clear policies on how we collect, use, and protect your information.</p>
+              </div>
+              <div className="bg-[#f4f5f7] border border-gray-200 rounded-2xl p-10 text-center flex flex-col items-center justify-center gap-4 min-h-[260px]">
+                <div className="text-5xl">🗑️</div>
+                <h3 className="text-2xl font-semibold text-gray-800">Data Deletion</h3>
+                <p className="max-w-[40ch] text-gray-600">You have the right to request deletion of your personal data at any time.</p>
+              </div>
+              <div className="bg-[#f4f5f7] border border-gray-200 rounded-2xl p-10 text-center flex flex-col items-center justify-center gap-4 min-h-[260px]">
+                <div className="text-5xl">🚫</div>
+                <h3 className="text-2xl font-semibold text-gray-800">No Sharing</h3>
+                <p className="max-w-[40ch] text-gray-600">We do not sell or share your data with third parties without consent.</p>
+              </div>
+              <div className="bg-[#f4f5f7] border border-gray-200 rounded-2xl p-10 text-center flex flex-col items-center justify-center gap-4 min-h-[260px]">
+                <div className="text-5xl">📞</div>
+                <h3 className="text-2xl font-semibold text-gray-800">Contact Us</h3>
+                <p className="max-w-[40ch] text-gray-600">Reach out with any privacy concerns or questions.</p>
+              </div>
+              <div className="bg-[#f4f5f7] border border-gray-200 rounded-2xl p-10 text-center flex flex-col items-center justify-center gap-4 min-h-[260px]">
+                <div className="text-5xl">⚖️</div>
+                <h3 className="text-2xl font-semibold text-gray-800">Legal Compliance</h3>
+                <p className="max-w-[40ch] text-gray-600">Adhering to data protection laws and regulations.</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <div className="prose prose-lg max-w-none">
-          <p className="mb-6">
-            This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
-          </p>
-          <p className="mb-6">
-            We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy. This Privacy Policy has been created with the help of the <a href="https://www.termsfeed.com/privacy-policy-generator/" target="_blank" className="text-orange-500 hover:underline">Privacy Policy Generator</a>.
-          </p>
+          <div className="bg-white rounded-2xl p-8 shadow-md mb-8">
+            <p className="mb-6 text-gray-700">
+              This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
+            </p>
+            <p className="mb-6 text-gray-700">
+              We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy. This Privacy Policy has been created with the help of the <a href="https://www.termsfeed.com/privacy-policy-generator/" target="_blank" className="text-orange-500 hover:underline">Privacy Policy Generator</a>.
+            </p>
+          </div>
 
-          <h2 className="text-3xl font-semibold mt-12 mb-6">Interpretation and Definitions</h2>
-          <h3 className="text-2xl font-semibold mt-8 mb-4">Interpretation</h3>
-          <p className="mb-6">
-            The words whose initial letters are capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.
-          </p>
+          <div className="bg-[#eef6ff] rounded-2xl p-8 shadow-sm mb-8">
+            <h2 className="text-3xl font-semibold mb-6 text-gray-800 flex items-center gap-3">
+              <div className="text-4xl">📖</div>
+              Interpretation and Definitions
+            </h2>
+            <h3 className="text-2xl font-semibold mt-8 mb-4">Interpretation</h3>
+            <p className="mb-6">
+              The words whose initial letters are capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.
+            </p>
 
-          <h3 className="text-2xl font-semibold mt-8 mb-4">Definitions</h3>
-          <p className="mb-4">For the purposes of this Privacy Policy:</p>
-          <ul className="list-disc pl-6 mb-6 space-y-2">
-            <li><strong>Account</strong> means a unique account created for You to access our Service or parts of our Service.</li>
-            <li><strong>Affiliate</strong> means an entity that controls, is controlled by, or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</li>
-            <li><strong>Company</strong> (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to sheet metal development.</li>
-            <li><strong>Cookies</strong> are small files that are placed on Your computer, mobile device or any other device by a website, containing the details of Your browsing history on that website among its many uses.</li>
-            <li><strong>Country</strong> refers to: New York, United States</li>
-            <li><strong>Device</strong> means any device that can access the Service such as a computer, a cell phone or a digital tablet.</li>
-            <li><strong>Personal Data</strong> is any information that relates to an identified or identifiable individual.</li>
-            <li><strong>Service</strong> refers to the Website.</li>
-            <li><strong>Service Provider</strong> means any natural or legal person who processes the data on behalf of the Company. It refers to third-party companies or individuals employed by the Company to facilitate the Service, to provide the Service on behalf of the Company, to perform services related to the Service or to assist the Company in analyzing how the Service is used.</li>
-            <li><strong>Usage Data</strong> refers to data collected automatically, either generated by the use of the Service or from the Service infrastructure itself (for example, the duration of a page visit).</li>
-            <li><strong>Website</strong> refers to sheet metal development, accessible from <a href="http://www.sheetmetaldevelopment.com" rel="external nofollow noopener" target="_blank" className="text-orange-500 hover:underline">http://www.sheetmetaldevelopment.com</a></li>
-            <li><strong>You</strong> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</li>
-          </ul>
-
+            <h3 className="text-2xl font-semibold mt-8 mb-4">Definitions</h3>
+            <p className="mb-4">For the purposes of this Privacy Policy:</p>
+            <ul className="list-disc pl-6 mb-6 space-y-2">
+              <li><strong>Account</strong> means a unique account created for You to access our Service or parts of our Service.</li>
+              <li><strong>Affiliate</strong> means an entity that controls, is controlled by, or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</li>
+              <li><strong>Company</strong> (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to sheet metal development.</li>
+              <li><strong>Cookies</strong> are small files that are placed on Your computer, mobile device or any other device by a website, containing the details of Your browsing history on that website among its many uses.</li>
+              <li><strong>Country</strong> refers to: New York, United States</li>
+              <li><strong>Device</strong> means any device that can access the Service such as a computer, a cell phone or a digital tablet.</li>
+              <li><strong>Personal Data</strong> is any information that relates to an identified or identifiable individual.</li>
+              <li><strong>Service</strong> refers to the Website.</li>
+              <li><strong>Service Provider</strong> means any natural or legal person who processes the data on behalf of the Company. It refers to third-party companies or individuals employed by the Company to facilitate the Service, to provide the Service on behalf of the Company, to perform services related to the Service or to assist the Company in analyzing how the Service is used.</li>
+              <li><strong>Usage Data</strong> refers to data collected automatically, either generated by the use of the Service or from the Service infrastructure itself (for example, the duration of a page visit).</li>
+              <li><strong>Website</strong> refers to sheet metal development, accessible from <a href="http://www.sheetmetaldevelopment.com" rel="external nofollow noopener" target="_blank" className="text-orange-500 hover:underline">http://www.sheetmetaldevelopment.com</a></li>
+              <li><strong>You</strong> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</li>
+            </ul>
+          </div>
+ <div className="bg-[#fffaf3] rounded-2xl p-8 shadow-sm mb-8">
           <h2 className="text-3xl font-semibold mt-12 mb-6">Collecting and Using Your Personal Data</h2>
           <h3 className="text-2xl font-semibold mt-8 mb-4">Types of Data Collected</h3>
           <h4 className="text-xl font-semibold mt-6 mb-3">Personal Data</h4>
@@ -80,7 +126,9 @@ export default function PrivacyPage() {
             </li>
           </ul>
           <p className="mb-6">For more information about the cookies we use and your choices regarding cookies, please visit our Cookies Policy or the Cookies section of our Privacy Policy.</p>
+</div>
 
+<div className="bg-[#f2fcf4] rounded-2xl p-8 shadow-sm mb-8">
           <h3 className="text-2xl font-semibold mt-8 mb-4">Use of Your Personal Data</h3>
           <p className="mb-4">The Company may use Personal Data for the following purposes:</p>
           <ul className="list-disc pl-6 mb-6 space-y-2">
@@ -134,7 +182,8 @@ export default function PrivacyPage() {
             <li>Protect the personal safety of Users of the Service or the public</li>
             <li>Protect against legal liability</li>
           </ul>
-
+</div>
+<div className="bg-[#fff2f2] rounded-2xl p-8 shadow-sm mb-8">
           <h3 className="text-2xl font-semibold mt-8 mb-4">Security of Your Personal Data</h3>
           <p className="mb-6">The security of Your Personal Data is important to Us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While We strive to use commercially reasonable means to protect Your Personal Data, We cannot guarantee its absolute security.</p>
 
@@ -157,6 +206,28 @@ export default function PrivacyPage() {
             <li>By email: contact@sheetmetaldevelopment.com</li>
           </ul>
         </div>
+</div>
+     
+        <section className="mt-16 bg-white border border-gray-200 rounded-3xl p-12 text-center shadow-sm">
+          <h2 className="text-4xl font-bold mb-6">Have Questions?</h2>
+          <p className="text-lg mb-8 opacity-90">We're here to help with any privacy concerns or inquiries.</p>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+            <div className="flex items-center gap-3">
+              <div className="text-3xl">📧</div>
+              <div className="text-left">
+                <p className="font-semibold text-gray-800">Email Us</p>
+                <p className="text-gray-600">contact@sheetmetaldevelopment.com</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="text-3xl">🌐</div>
+              <div className="text-left">
+                <p className="font-semibold text-gray-800">Visit Our Site</p>
+                <p className="text-gray-600">sheetmetaldevelopment.com</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );
