@@ -6,11 +6,7 @@ export default function TermsPage() {
         <p className="text-sm text-gray-600 mb-8 text-center">Last updated: October 21, 2025</p>
 
         <div className="prose prose-lg max-w-none">
-          <div className="bg-white rounded-2xl p-8 shadow-sm mb-8">
-            <p className="mb-6 text-gray-700">
-              Please read these terms and conditions carefully before using Our Service.
-            </p>
-          </div>
+          
 
           <div className="bg-[#eef6ff] rounded-2xl p-8 shadow-sm mb-8">
             <h2 className="text-3xl font-semibold mb-6 text-gray-800 flex items-center gap-3">

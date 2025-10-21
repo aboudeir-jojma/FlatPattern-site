@@ -2,46 +2,50 @@ export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-[#f9fafb] text-gray-800 py-20 px-6">
       <div className="w-4/5 mx-auto">
-        <h1 className="text-5xl font-bold mb-6 text-center text-orange-500">Privacy Policy</h1>
-        <p className="text-sm text-gray-600 mb-12 text-center">Last updated: October 21, 2025</p>
+        
 
         {/* Privacy Highlights Section */}
         <section className="w-full bg-white py-16 mb-16 rounded-3xl shadow-md">
-          <div className="w-4/5 mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Privacy Highlights</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-[#f4f5f7] border border-gray-200 rounded-2xl p-10 text-center flex flex-col items-center justify-center gap-4 min-h-[260px]">
-                <div className="text-5xl">🔒</div>
-                <h3 className="text-2xl font-semibold text-gray-800">Data Security</h3>
-                <p className="max-w-[40ch] text-gray-600">We prioritize the security of your personal data with industry-standard protections.</p>
-              </div>
-              <div className="bg-[#f4f5f7] border border-gray-200 rounded-2xl p-10 text-center flex flex-col items-center justify-center gap-4 min-h-[260px]">
-                <div className="text-5xl">👁️</div>
-                <h3 className="text-2xl font-semibold text-gray-800">Transparency</h3>
-                <p className="max-w-[40ch] text-gray-600">Clear policies on how we collect, use, and protect your information.</p>
-              </div>
-              <div className="bg-[#f4f5f7] border border-gray-200 rounded-2xl p-10 text-center flex flex-col items-center justify-center gap-4 min-h-[260px]">
-                <div className="text-5xl">🗑️</div>
-                <h3 className="text-2xl font-semibold text-gray-800">Data Deletion</h3>
-                <p className="max-w-[40ch] text-gray-600">You have the right to request deletion of your personal data at any time.</p>
-              </div>
-              <div className="bg-[#f4f5f7] border border-gray-200 rounded-2xl p-10 text-center flex flex-col items-center justify-center gap-4 min-h-[260px]">
-                <div className="text-5xl">🚫</div>
-                <h3 className="text-2xl font-semibold text-gray-800">No Sharing</h3>
-                <p className="max-w-[40ch] text-gray-600">We do not sell or share your data with third parties without consent.</p>
-              </div>
-              <div className="bg-[#f4f5f7] border border-gray-200 rounded-2xl p-10 text-center flex flex-col items-center justify-center gap-4 min-h-[260px]">
-                <div className="text-5xl">📞</div>
-                <h3 className="text-2xl font-semibold text-gray-800">Contact Us</h3>
-                <p className="max-w-[40ch] text-gray-600">Reach out with any privacy concerns or questions.</p>
-              </div>
-              <div className="bg-[#f4f5f7] border border-gray-200 rounded-2xl p-10 text-center flex flex-col items-center justify-center gap-4 min-h-[260px]">
-                <div className="text-5xl">⚖️</div>
-                <h3 className="text-2xl font-semibold text-gray-800">Legal Compliance</h3>
-                <p className="max-w-[40ch] text-gray-600">Adhering to data protection laws and regulations.</p>
-              </div>
-            </div>
-          </div>
+<h1 className="text-5xl font-bold mb-6 text-center text-orange-500">Privacy Policy</h1>
+        <p className="text-sm text-gray-600 mb-12 text-center">Last updated: October 21, 2025</p>
+ <section className="w-full bg-white py-16">
+      <div className="w-4/5 mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="bg-gradient-to-b from-slate-900 to-slate-800/80 border border-slate-800 rounded-2xl p-10 text-center text-slate-200 flex flex-col items-center justify-center gap-4 min-h-[280px]">
+          <div className="text-5xl">🔒</div>
+          <h3 className="text-2xl md:text-3xl font-semibold text-white">Data Security</h3>
+          <p className="max-w-[36ch] opacity-90">We prioritize the security of your personal data with industry-standard protections.</p>
+        </div>
+        <div className="bg-gradient-to-b from-slate-900 to-slate-800/80 border border-slate-800 rounded-2xl p-10 text-center text-slate-200 flex flex-col items-center justify-center gap-4 min-h-[280px]">
+          <div className="text-5xl">👁️</div>
+          <h3 className="text-2xl md:text-3xl font-semibold text-white">Transparency</h3>
+          <p className="max-w-[38ch] opacity-90">Clear policies on how we collect, use, and protect your information.</p>
+        </div>
+        <div className="bg-gradient-to-b from-slate-900 to-slate-800/80 border border-slate-800 rounded-2xl p-10 text-center text-slate-200 flex flex-col items-center justify-center gap-4 min-h-[280px]">
+          <div className="text-5xl">🗑️</div>
+          <h3 className="text-2xl md:text-3xl font-semibold text-white">Data Deletion</h3>
+          <p className="max-w-[36ch] opacity-90">You have the right to request deletion of your personal data at any time.</p>
+        </div>
+        <div className="bg-gradient-to-b from-slate-900 to-slate-800/80 border border-slate-800 rounded-2xl p-10 text-center text-slate-200 flex flex-col items-center justify-center gap-4 min-h-[280px]">
+          <div className="text-5xl">🚫</div>
+          <h3 className="text-2xl md:text-3xl font-semibold text-white">No Sharing</h3>
+          <p className="max-w-[44ch] opacity-90">We do not sell or share your data with third parties without consent.</p>
+        </div>
+        <div className="bg-gradient-to-b from-slate-900 to-slate-800/80 border border-slate-800 rounded-2xl p-10 text-center text-slate-200 flex flex-col items-center justify-center gap-4 min-h-[280px]">
+          <div className="text-5xl">📞</div>
+          <h3 className="text-2xl md:text-3xl font-semibold text-white">Contact Us</h3>
+          <p className="max-w-[38ch] opacity-90">Reach out with any privacy concerns or questions.</p>
+        </div>
+        <div className="bg-gradient-to-b from-slate-900 to-slate-800/80 border border-slate-800 rounded-2xl p-10 text-center text-slate-200 flex flex-col items-center justify-center gap-4 min-h-[280px]">
+          <div className="text-5xl">⚖️</div>
+          <h3 className="text-2xl md:text-3xl font-semibold text-white">Legal Compliance</h3>
+          <p className="max-w-[44ch] opacity-90">Adhering to data protection laws and regulations.</p>
+        </div>
+      </div>
+    </section>
+
+
+
+           
         </section>
 
         <div className="prose prose-lg max-w-none">
@@ -207,23 +211,25 @@ export default function PrivacyPage() {
           </ul>
         </div>
 </div>
+
+
      
-        <section className="mt-16 bg-white border border-gray-200 rounded-3xl p-12 text-center shadow-sm">
-          <h2 className="text-4xl font-bold mb-6">Have Questions?</h2>
-          <p className="text-lg mb-8 opacity-90">We're here to help with any privacy concerns or inquiries.</p>
+        <section className="mt-16 bg-gradient-to-b from-slate-900 to-slate-800/80 border border-gray-200 rounded-3xl p-12 text-center shadow-sm">
+          <h2 className="text-2xl md:text-3xl font-semibold text-white">Have Questions?</h2>
+          <p className="text-lg mb-8  text-white">We're here to help with any privacy concerns or inquiries.</p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
             <div className="flex items-center gap-3">
               <div className="text-3xl">📧</div>
               <div className="text-left">
-                <p className="font-semibold text-gray-800">Email Us</p>
-                <p className="text-gray-600">contact@sheetmetaldevelopment.com</p>
+                <p className="font-semibold  text-white">Email Us</p>
+                <p className=" text-white">contact@sheetmetaldevelopment.com</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <div className="text-3xl">🌐</div>
               <div className="text-left">
-                <p className="font-semibold text-gray-800">Visit Our Site</p>
-                <p className="text-gray-600">sheetmetaldevelopment.com</p>
+                <p className="font-semibold  text-white">Visit Our Site</p>
+                <p className=" text-white">sheetmetaldevelopment.com</p>
               </div>
             </div>
           </div>
