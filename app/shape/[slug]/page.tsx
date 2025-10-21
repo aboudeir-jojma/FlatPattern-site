@@ -5,7 +5,6 @@ import ClientShapePage from "./ClientShapePage";
    🔹 FORM PARAMETERS LINKED TO BACKEND KEYS
 ------------------------------------------------- */
 const shapeForms: Record<string, { label: string; key: string }[]> = {
-
   // ✅ Cone
   cone: [
     { label: "Base Diameter (D)", key: "diameter" },
@@ -59,12 +58,11 @@ const shapeForms: Record<string, { label: string; key: string }[]> = {
   ],
 
   // ✅ Bend (Elbow)
-  elbow: [
-    { label: "Bend Radius (R)", key: "R" },
-    { label: "Bend Angle (α)", key: "alpha" },
-    { label: "Pipe Diameter (D)", key: "D" },
-    { label: "Number of Sections (N)", key: "N" },
-    { label: "Number of Divisions (n)", key: "n" },
+  bend: [
+    { label: "Pipe Diameter (D)", key: "diameter" },
+    { label: "Bend Angle (°)", key: "bend_angle" },
+    { label: "Centerline Radius (R)", key: "radius" },
+    { label: "Divisions", key: "divisions" },
   ],
 
   // ✅ Flange
@@ -127,89 +125,84 @@ const shapeForms: Record<string, { label: string; key: string }[]> = {
     { label: "Number of Divisions (n)", key: "n" },
   ],
 
-  // ✅ Pants
+  // ✅ Pants (Y-branch symmetric)
   pants: [
-    { label: "Main Diameter (D1)", key: "D1" },
-    { label: "Branch Diameter (D2)", key: "D2" },
-    { label: "Height (H)", key: "H" },
-    { label: "Offset (X)", key: "X" },
-    { label: "Number of Divisions (n)", key: "n" },
+    { label: "Main Diameter (D1)", key: "main_diameter" },
+    { label: "Branch Diameter (D2)", key: "branch_diameter" },
+    { label: "Branch Angle (°)", key: "angle" },
+    { label: "Intersection Height", key: "height" },
   ],
 
   // ✅ Pants Eccentric
   "pants-ecc": [
-    { label: "Main Diameter (D1)", key: "D1" },
-    { label: "Branch Diameter (D2)", key: "D2" },
-    { label: "Height (H)", key: "H" },
-    { label: "Offset X (X)", key: "X" },
-    { label: "Offset Y (Y)", key: "Y" },
-    { label: "Number of Divisions (n)", key: "n" },
+    { label: "Main Diameter (D1)", key: "main_diameter" },
+    { label: "Branch Diameter (D2)", key: "branch_diameter" },
+    { label: "Branch Offset (Eccentricity)", key: "offset" },
+    { label: "Angle (°)", key: "angle" },
   ],
 
-  // ✅ Pants 2 (Asymmetric)
-  pants2: [
-    { label: "Main Diameter (D1)", key: "D1" },
-    { label: "Branch Diameter (D2)", key: "D2" },
-    { label: "Height (H)", key: "H" },
-    { label: "Offset (X)", key: "X" },
-    { label: "Angle (a°)", key: "a" },
-    { label: "Number of Divisions (n)", key: "n" },
+  // ✅ Pants 2 (asymmetric)
+  "pants-2": [
+    { label: "Main Diameter (D1)", key: "main_diameter" },
+    { label: "Left Branch Diameter (D2)", key: "left_branch_d" },
+    { label: "Right Branch Diameter (D3)", key: "right_branch_d" },
+    { label: "Angle Between Branches (°)", key: "angle" },
   ],
 
-  // ✅ Breeches Full
-  "breeches-full": [
-    { label: "Main Diameter (D)", key: "D" },
-    { label: "Left Branch Length (L1)", key: "L1" },
-    { label: "Right Branch Length (L2)", key: "L2" },
-    { label: "Angle (a°)", key: "a" },
-    { label: "Number of Divisions (n)", key: "n" },
+  // ✅ Breeches (Double Y)
+  breeches: [
+    { label: "Main Diameter (D1)", key: "main_diameter" },
+    { label: "Left Branch Diameter (D2)", key: "left_branch_d" },
+    { label: "Right Branch Diameter (D3)", key: "right_branch_d" },
+    { label: "Branch Angle (°)", key: "angle" },
   ],
 
-  // ✅ Offset Tee
-  "offset-tee": [
-    { label: "Main Diameter (D)", key: "D" },
-    { label: "Branch Diameter (d)", key: "d" },
-    { label: "Length (L)", key: "L" },
-    { label: "Offset (X)", key: "X" },
-    { label: "Angle (a°)", key: "a" },
-    { label: "Number of Divisions (n)", key: "n" },
+  // ✅ Tee
+  tee: [
+    { label: "Main Diameter (D1)", key: "main_diameter" },
+    { label: "Branch Diameter (D2)", key: "branch_diameter" },
+    { label: "Branch Angle (°)", key: "angle" },
+    { label: "Intersection Height", key: "height" },
   ],
 
-  // ✅ Tee Oblique
-  "tee-oblique": [
-    { label: "Length (L1)", key: "L1" },
-    { label: "Main Diameter (D)", key: "D" },
-    { label: "Branch Diameter (d)", key: "d" },
-    { label: "Angle (a°)", key: "a" },
-    { label: "Number of Divisions (n)", key: "n" },
-  ],
-
-  // ✅ Tee on Bend
-  "tee-on-bend": [
-    { label: "Main Diameter (D)", key: "D" },
-    { label: "Branch Diameter (d)", key: "d" },
-    { label: "Bend Radius (R)", key: "R" },
-    { label: "Height (H)", key: "H" },
-    { label: "Number of Divisions (n)", key: "n" },
+  // ✅ Tee Eccentric
+  "tee-eccentric": [
+    { label: "Main Diameter (D1)", key: "main_diameter" },
+    { label: "Branch Diameter (D2)", key: "branch_diameter" },
+    { label: "Eccentricity (Offset)", key: "offset" },
+    { label: "Branch Angle (°)", key: "angle" },
   ],
 
   // ✅ Tee on Cone
   "tee-on-cone": [
-    { label: "Cone Base Diameter (D1)", key: "D1" },
-    { label: "Cone Top Diameter (D2)", key: "D2" },
-    { label: "Length (L)", key: "L" },
-    { label: "Base Distance (A)", key: "A" },
-    { label: "Branch Diameter (d)", key: "d" },
-    { label: "Height (H)", key: "H" },
-    { label: "Offset (X)", key: "X" },
-    { label: "Number of Divisions (n)", key: "n" },
+    { label: "Cone Base Diameter (D1)", key: "cone_diameter" },
+    { label: "Cone Height (H)", key: "cone_height" },
+    { label: "Branch Diameter (D2)", key: "branch_diameter" },
+    { label: "Branch Angle (°)", key: "angle" },
+  ],
+
+  // ✅ Offset Tee
+  "offset-tee": [
+    { label: "Main Diameter (D1)", key: "main_diameter" },
+    { label: "Branch Diameter (D2)", key: "branch_diameter" },
+    { label: "Offset (Eccentricity)", key: "offset" },
+    { label: "Branch Angle (°)", key: "angle" },
+  ],
+
+  // ✅ Tee on Bend
+  "tee-on-bend": [
+    { label: "Main Diameter (D1)", key: "main_diameter" },
+    { label: "Branch Diameter (D2)", key: "branch_diameter" },
+    { label: "Bend Radius (R)", key: "radius" },
+    { label: "Bend Angle (°)", key: "angle" },
   ],
 
   // ✅ Auger (Helix)
   auger: [
-    { label: "Inner Shaft Diameter (d)", key: "d" },
-    { label: "Outer Diameter (D)", key: "D" },
-    { label: "Pitch (S)", key: "S" },
+    { label: "Outer Diameter (D)", key: "outer_d" },
+    { label: "Inner Shaft Diameter (d)", key: "inner_d" },
+    { label: "Pitch (P)", key: "pitch" },
+    { label: "Length (L)", key: "length" },
   ],
 
   // ✅ Sphere
@@ -219,9 +212,6 @@ const shapeForms: Record<string, { label: string; key: string }[]> = {
     { label: "Number of Parallels (n)", key: "n" },
   ],
 };
-/* -----------------------------------------------
-   🔹 STATIC PARAMS GENERATION
-------------------------------------------------- */
 
 
 // Generate static params for all shape slugs
