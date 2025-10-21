@@ -22,7 +22,7 @@ export default function ShapeForm({
     shapeName === "frustum-cone" ? { calc_type: "H" } : {};
   const [values, setValues] = useState<Record<string, string>>(initialValues);
 
-  const API_URL = "https://flat-pattern-production.up.railway.app/generate_dxf";
+  const API_URL = "https://flat-pattern.onrender.com/generate_dxf";
 
   const handleChange = (key: string, value: string) => {
     setValues((prev) => ({ ...prev, [key]: value }));
