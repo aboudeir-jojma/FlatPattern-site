@@ -139,7 +139,7 @@ export default function ClientShapePage({
           <div className="w-full md:w-1/2 flex flex-col items-center">
             <div className="w-full rounded-xl border border-slate-200 bg-white p-4 flex justify-center min-h-[28rem]">
               <img
-                src={techImageSrc || affichageImageSrc}
+                src={affichageImageSrc}
                 alt={`${slug} affichage`}
                 className="w-full h-auto max-h-[26rem] object-contain"
               />

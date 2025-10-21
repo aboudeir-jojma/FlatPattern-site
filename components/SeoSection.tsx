@@ -4,11 +4,11 @@ export default function SeoSection() {
     <section className="relative overflow-hidden bg-white text-black py-16 px-6 border-b border-gray-300">
       <div className="w-4/5 max-w-9xl mx-auto text-left">
         <h1 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
-          Online DXF Flat Pattern Generator – Flat Pattern
+          Online DXF  Generator – sheet metal
         </h1>
 
         <p className="text-lg text-gray-800 leading-relaxed mb-6">
-          <strong>Flat Pattern</strong> is a free professional tool that
+          <strong>sheet metal</strong> is a free professional tool that
           automatically calculates and generates <strong>DXF</strong> files
           ready for laser cutting, bending, or industrial manufacturing — in
           just a few seconds.
@@ -17,7 +17,7 @@ export default function SeoSection() {
         <p className="text-gray-800 leading-relaxed mb-6">
           Select a shape (<em>cone</em>, <em>frustum cone</em>,
           <em> pyramid</em>, <em>truncated cylinder</em>, <em>elbow</em>, etc.),
-          enter your dimensions, and instantly get the flat pattern in
+          enter your dimensions, and instantly get the sheet metal in
           <strong> DXF format</strong>. Optimized for
           <strong> sheet metal work</strong>, <strong>laser cutting</strong>, and
           <strong> mechanical design</strong>.
@@ -25,12 +25,12 @@ export default function SeoSection() {
 
         <div className="mt-10 bg-white rounded-xl border border-gray-300 p-8 shadow-sm">
           <h2 className="text-3xl font-semibold mb-4 text-black">
-            What is a sheet metal flat pattern?
+            What is a sheet metal sheet metal?
           </h2>
           <p className="text-gray-800 leading-relaxed mb-6">
-            A <strong>sheet metal flat pattern</strong> is a two-dimensional
+            A <strong>sheet metal sheet metal</strong> is a two-dimensional
             representation of a three-dimensional metal part. It allows the
-            piece to be cut, bent, and formed before assembly. Flat Pattern
+            piece to be cut, bent, and formed before assembly. sheet metal
             automates these complex geometric calculations to produce an
             accurate <strong>DXF</strong> file directly usable by industrial
             machines.

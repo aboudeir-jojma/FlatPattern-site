@@ -7,7 +7,7 @@ export default function FeaturesSection() {
         <div className="bg-gradient-to-b from-slate-900 to-slate-800/80 border border-slate-800 rounded-2xl p-10 text-center text-slate-200 flex flex-col items-center justify-center gap-4 min-h-[280px]">
           <div className="text-5xl">🌐</div>
           <h3 className="text-2xl md:text-3xl font-semibold text-white">100% online</h3>
-          <p className="max-w-[36ch] opacity-90">Generate flat patterns directly in your browser. No installs.</p>
+          <p className="max-w-[36ch] opacity-90">Generate sheet metals directly in your browser. No installs.</p>
         </div>
         <div className="bg-gradient-to-b from-slate-900 to-slate-800/80 border border-slate-800 rounded-2xl p-10 text-center text-slate-200 flex flex-col items-center justify-center gap-4 min-h-[280px]">
           <div className="text-5xl">⬇️</div>

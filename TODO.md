@@ -1,12 +1,11 @@
-# TODO: Add Units to Result Values
+# TODO: Translate Contact Page to English
 
-- [x] Add a helper function in ClientShapePage.tsx to determine the unit for each result key (mm for dimensions, ° for angles).
-- [x] Update the results display in the ul to append the unit after each value.
-
-# TODO: Fix Mobile Nav Display
-
-- [x] Add hamburger menu icon for mobile screens.
-- [x] Use state to toggle mobile menu dropdown (not full overlay).
-- [x] Hide desktop links on small screens and show in mobile menu.
-- [x] Ensure menu closes on link click.
-- [x] Improve styling with hover effects and border.
+- [x] Translate header title from "Contactez-nous" to "Contact Us"
+- [x] Translate header description to English
+- [x] Translate map section text to English
+- [x] Translate "Informations de contact" to "Contact Information"
+- [x] Translate form title "Envoyez-nous un message" to "Send us a message"
+- [x] Translate form labels: "Nom complet" to "Full Name", "Adresse e-mail" to "Email Address", "Message" to "Message"
+- [x] Translate placeholders: "Entrez votre nom" to "Enter your name", "Entrez votre e-mail" to "Enter your email", "Décrivez votre projet ou votre besoin..." to "Describe your project or need..."
+- [x] Translate button text "Envoyer le message" to "Send Message"
+- [x] Translate error messages in the component

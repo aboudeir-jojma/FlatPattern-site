@@ -4,11 +4,11 @@ import Footer from "../components/Footer";
 import React from "react";
 
 export const metadata = {
-  title: "Flat Pattern – Générateur de patrons plats DXF pour tôlerie",
+  title: "sheet metal – Générateur de patrons plats DXF pour tôlerie",
   description:
     "Outil en ligne pour créer et télécharger des patrons plats DXF pour cônes, tronc de cônes, cylindres, coudes, flasques, et autres formes de tôlerie.",
   keywords:
-    "flat pattern, développé tôle, générateur DXF, découpe laser, chaudronnerie, cône, tronc de cône, pyramide, rectangle, transition, pliage tôle, dxf en ligne",
+    "sheet metal, développé tôle, générateur DXF, découpe laser, chaudronnerie, cône, tronc de cône, pyramide, rectangle, transition, pliage tôle, dxf en ligne",
 };
 // ✅ on définit le type de props pour le layout
 export default function RootLayout({

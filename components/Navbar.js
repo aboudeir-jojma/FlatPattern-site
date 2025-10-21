@@ -36,7 +36,7 @@ export default function Navbar() {
       >
         <div className="w-4/5 max-w-7xl mx-auto flex items-center justify-between">
           <a href="/" className="text-2xl font-extrabold tracking-wide select-none">
-            Flat Pattern
+            sheet metal
           </a>
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8 text-sm md:text-base">
@@ -46,21 +46,21 @@ export default function Navbar() {
                 <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-orange-500 rounded-full"></span>
               )}
             </a>
-            <a href="#top" className="relative pb-1" onClick={() => setActive("#top")}>
+            <a href="/privacy" className="relative pb-1" onClick={() => setActive("/privacy")}>
              Privacy
-              {active === "#top" && (
+              {active === "/privacy" && (
                 <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-orange-500 rounded-full"></span>
               )}
             </a>
-            <a href="#pricing" className="relative pb-1" onClick={() => setActive("#pricing")}>
+            <a href="/terms" className="relative pb-1" onClick={() => setActive("/terms")}>
              Terms
-              {active === "#pricing" && (
+              {active === "/terms" && (
                 <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-orange-500 rounded-full"></span>
               )}
             </a>
-            <a href="#footer" className="relative pb-1" onClick={() => setActive("#footer")}>
+            <a href="/contact" className="relative pb-1" onClick={() => setActive("/contact")}>
               Contact
-              {active === "#footer" && (
+              {active === "/contact" && (
                 <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-orange-500 rounded-full"></span>
               )}
             </a>
@@ -82,13 +82,13 @@ export default function Navbar() {
               <a href="/" className="text-lg hover:text-orange-500" onClick={() => handleLinkClick("/")}>
                 Home
               </a>
-              <a href="#top" className="text-lg hover:text-orange-500" onClick={() => handleLinkClick("#top")}>
+              <a href="/privacy" className="text-lg hover:text-orange-500" onClick={() => handleLinkClick("/privacy")}>
                Privacy
               </a>
-              <a href="#pricing" className="text-lg hover:text-orange-500" onClick={() => handleLinkClick("#pricing")}>
+              <a href="/terms" className="text-lg hover:text-orange-500" onClick={() => handleLinkClick("/terms")}>
                Terms
               </a>
-              <a href="#footer" className="text-lg hover:text-orange-500" onClick={() => handleLinkClick("#footer")}>
+              <a href="/contact" className="text-lg hover:text-orange-500" onClick={() => handleLinkClick("/contact")}>
                 Contact
               </a>
             </div>
