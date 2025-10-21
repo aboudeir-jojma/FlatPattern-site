@@ -1,6 +1,5 @@
 "use client";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
-import { useState } from "react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import dynamic from "next/dynamic";
 
 // Dynamically import the map component to avoid SSR issues
@@ -10,46 +9,6 @@ const MapComponent = dynamic(() => import("../components/MapComponent"), {
 });
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [submitMessage, setSubmitMessage] = useState("");
-  const [messageType, setMessageType] = useState<"success" | "error" | "">("");
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitMessage("");
-    setMessageType("");
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        setSubmitMessage(result.message);
-        setMessageType("success");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        setSubmitMessage(result.error || 'Error sending message');
-        setMessageType("error");
-      }
-    } catch (error) {
-      setSubmitMessage('Error sending message');
-      setMessageType("error");
-    }
-  };
 
   return (
     <section className="min-h-screen bg-white text-black py-20 px-6">
@@ -67,7 +26,7 @@ export default function ContactPage() {
 
         {/* Map Section - First */}
         <div className="mb-12">
-          
+
           <div className="max-w-8xl  mx-auto bg-gray-50 rounded-xl shadow-lg border border-gray-200 p-2">
             <MapComponent />
           </div>
@@ -76,105 +35,36 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 mb-12">
-          {/* Left Section: Info */}
-          <div className="text-start">
-            <h2 className="text-3xl font-bold text-orange-500 mb-6">
-              Contact Information
-            </h2>
-
-            <div className="space-y-6 mb-8 text-left">
-  <div className="flex items-center justify-start gap-3">
-    <Mail className="text-orange-500 w-6 h-6" />
-    <a
-      href="mailto:contact@sheetmetaldevelopment.com"
-      className="text-gray-800 hover:text-orange-500 transition font-bold text-lg"
-    >
-      contact@sheetmetaldevelopment.com
-    </a>
-  </div>
-
-  <div className="flex items-center justify-start gap-3">
-    <Phone className="text-orange-500 w-6 h-6" />
-    <span className="text-gray-800 font-bold text-lg">
-      +212 7 72 88 83 09
-    </span>
-  </div>
-
-  <div className="flex items-center justify-start gap-3">
-    <MapPin className="text-orange-500 w-6 h-6" />
-    <span className="text-gray-800 font-bold text-lg">
-      134 Rue Assouane, Casablanca 20250, Maroc
-    </span>
-  </div>
-</div>
-
-          </div>
-
-          {/* Right Section: Contact Form */}
-          <div>
-            <form
-              onSubmit={handleSubmit}
-              className="bg-gray-50 rounded-xl shadow-lg border border-gray-200 p-6"
-            >
-              <h3 className="text-2xl font-bold text-orange-500 mb-6 text-center">
-                Send us a message
-              </h3>
-
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-gray-700 mb-1 text-sm font-semibold">Full Name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="Enter your name"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-gray-700 mb-1 text-sm font-semibold">Email Address</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="Enter your email"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-gray-700 mb-1 text-sm font-semibold">Message</label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={4}
-                    placeholder="Describe your project or need..."
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm"
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-orange-500 text-white font-semibold py-2 rounded-md flex justify-center items-center gap-2 hover:bg-orange-600 transition text-sm"
-                >
-                  <Send className="w-4 h-4" />
-                  Send Message
-                </button>
-                {submitMessage && (
-                  <p className={`mt-2 text-sm text-center ${messageType === "success" ? "text-green-600" : "text-red-600"}`}>
-                    {submitMessage}
-                  </p>
-                )}
-              </div>
-            </form>
+        {/* Contact Info Section */}
+        <div className="bg-gray-50 rounded-xl shadow-lg border border-gray-200 p-6 mx-auto max-w-md">
+          <h3 className="text-2xl font-bold text-orange-500 mb-6 text-center">
+            Contact Information
+          </h3>
+          <p className="text-gray-700 text-center mb-6">
+            Ready to start your project? Contact us directly using the information below.
+          </p>
+          <div className="space-y-4 text-center">
+            <div className="flex items-center justify-center gap-3">
+              <Mail className="text-orange-500 w-6 h-6" />
+              <a
+                href="mailto:contact@sheetmetaldevelopment.com"
+                className="text-gray-800 hover:text-orange-500 transition font-bold"
+              >
+                contact@sheetmetaldevelopment.com
+              </a>
+            </div>
+            <div className="flex items-center justify-center gap-3">
+              <Phone className="text-orange-500 w-6 h-6" />
+              <span className="text-gray-800 font-bold">
+                +212 7 72 88 83 09
+              </span>
+            </div>
+            <div className="flex items-center justify-center gap-3">
+              <MapPin className="text-orange-500 w-6 h-6" />
+              <span className="text-gray-800 font-bold">
+                134 Rue Assouane, Casablanca 20250, Maroc
+              </span>
+            </div>
           </div>
         </div>
       </div>
