@@ -24,8 +24,31 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitMessage("This is a demo form. Messages are not sent in the static version.");
-    setMessageType("error");
+    setSubmitMessage("");
+    setMessageType("");
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitMessage(result.message);
+        setMessageType("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setSubmitMessage(result.error || 'Error sending message');
+        setMessageType("error");
+      }
+    } catch (error) {
+      setSubmitMessage('Error sending message');
+      setMessageType("error");
+    }
   };
 
   return (
