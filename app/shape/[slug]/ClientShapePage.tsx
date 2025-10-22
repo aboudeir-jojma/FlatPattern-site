@@ -173,7 +173,7 @@ export default function ClientShapePage({
               )}
             </div>
 
-            {/* Message */}
+            {/* Message
             {message && (
               <p
                 className={`text-sm mt-4 flex justify-between ${
@@ -183,8 +183,8 @@ export default function ClientShapePage({
                 }`}
               >
                 {message}
-              </p>
-            )}
+              </p> */}
+            {/* )} */}
           </div>
         </div>
       )}
