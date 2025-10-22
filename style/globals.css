@@ -1,13 +1,1 @@
 @import "tailwindcss";
-
-/* On garde la saisie, mais on cache le curseur clignotant */
-input,
-textarea {
-  caret-color: transparent; /* cache la barre */
-}
-
-/* On garde le curseur texte normal pour éviter de casser l'UX */
-input,
-textarea {
-  cursor: text;
-}
