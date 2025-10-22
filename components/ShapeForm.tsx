@@ -24,6 +24,41 @@ export default function ShapeForm({
 
   const API_URL = "https://flat-pattern.onrender.com/generate_dxf";
 
+  // Mapping for backend shape names that differ from frontend slugs
+  // ✅ Front → Back mapping
+const backendShapeMap: Record<string, string> = {
+  // Exceptions manuelles
+  "breeches": "breeches_full",
+  "pants-2": "pants2",
+  "tee-oblique": "tee_oblique",
+
+  // Auto-mapping (le reste suit la convention)
+  "cone": "cone",
+  "offset-cone": "offset_cone",
+  "frustum-cone": "frustum_cone",
+  "frustum-cone-triangulation": "frustum_cone_triangulation",
+  "truncated-cylinder": "truncated_cylinder",
+  "pyramid": "pyramid",
+  "rectangle-to-rectangle": "rectangle_to_rectangle",
+  "bend": "bend",
+  "flange": "flange",
+  "frustum-ecc-paral": "frustum_ecc_paral",
+  "frustum-ecc-angle": "frustum_ecc_angle",
+  "rectangle-to-circle": "rectangle_to_circle",
+  "rectangle-to-circle-ecc": "rectangle_to_circle_ecc",
+  "circle-to-rectangle": "circle_to_rectangle",
+  "pants": "pants",
+  "pants-ecc": "pants_ecc",
+  "offset-tee": "offset_tee",
+  "tee": "tee",
+  "tee-eccentric": "tee_eccentric",
+  "tee-on-bend": "tee_on_bend",
+  "tee-on-cone": "tee_on_cone",
+  "auger": "auger",
+  "sphere": "sphere",
+};
+
+
   const handleChange = (key: string, value: string) => {
     setValues((prev) => ({ ...prev, [key]: value }));
   };
@@ -56,8 +91,10 @@ export default function ShapeForm({
         }
       });
 
+      const backendShapeName = backendShapeMap[shapeName] || shapeName.replace(/-/g, "_");
+
       const payload = {
-        shape: shapeName.replace(/-/g, "_"),
+        shape: backendShapeName,
         params,
       };
 

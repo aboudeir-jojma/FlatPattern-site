@@ -31,12 +31,12 @@ export default function Navbar() {
           fixed top-0 left-0 w-full
           bg-slate-900/90 border-b border-slate-800
           text-white shadow-lg z-50
-          py-2 px-6 backdrop-blur-sm relative
+          py-4 px-6 backdrop-blur-sm relative
         "
       >
         <div className="w-4/5 max-w-7xl mx-auto flex items-center justify-between">
           <a href="/" className="flex items-center">
-            <img src="/logo.png" alt="sheet metal logo" className="h-18 w-auto" />
+            <img src="/logo.png" alt="sheet metal logo" className="h-12 w-auto" />
           </a>
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8 text-sm md:text-base">

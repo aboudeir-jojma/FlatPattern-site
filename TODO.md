@@ -1,3 +1,6 @@
 - [ ] Update app/terms/page.tsx for mobile responsiveness: Add responsive classes for padding, margins, text sizes, and layouts.
 - [ ] Update app/privacy/page.tsx for mobile responsiveness: Enhance existing responsive classes and add more for text sizes and padding.
 - [ ] Verify responsiveness by checking on different screen sizes or using browser dev tools.
+- [x] Standardized form parameter keys for "cone" and "truncated-cylinder" shapes to match backend expectations: changed "diameter" to "diameter", "height" to "height", and "angle" to "angle".
+- [x] Tested the changes by running the development server and verifying the form inputs map correctly to the standardized keys.
+- [x] Added backend shape name mapping in ShapeForm.tsx for shapes where frontend slugs differ from backend names: "breeches" → "breeches_full", "pants-2" → "pants2", "tee-oblique" → "tee_oblique".

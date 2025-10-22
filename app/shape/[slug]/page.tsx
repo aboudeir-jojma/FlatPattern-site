@@ -7,8 +7,8 @@ import ClientShapePage from "./ClientShapePage";
 const shapeForms: Record<string, { label: string; key: string }[]> = {
   // ✅ Cone
   cone: [
-    { label: "Base Diameter (D)", key: "diameter" },
-    { label: "Height (H)", key: "height" },
+    { label: "Base Diameter (diameter)", key: "diameter" },
+    { label: "Height (height)", key: "height" },
   ],
 
   // ✅ Offset Cone
@@ -21,23 +21,23 @@ const shapeForms: Record<string, { label: string; key: string }[]> = {
 
   // ✅ Frustum Cone
   "frustum-cone": [
-    { label: "Small Diameter (D2)", key: "diameter2" },
-    { label: "Large Diameter (D1)", key: "diameter1" },
+    { label: "Large Diameter (D1)", key: "D1" },
+    { label: "Small Diameter (D2)", key: "D2" },
   ],
 
   // ✅ Frustum Cone (Triangulation)
   "frustum-cone-triangulation": [
-    { label: "Large Diameter (D1)", key: "diameter1" },
-    { label: "Small Diameter (D2)", key: "diameter2" },
-    { label: "Height (H)", key: "height" },
-    { label: "Number of Divisions (n)", key: "divisions" },
+    { label: "Large Diameter (D1)", key: "D1" },
+    { label: "Small Diameter (D2)", key: "D2" },
+    { label: "Height (H)", key: "H" },
+    { label: "Number of Divisions (n)", key: "n" },
   ],
 
   // ✅ Truncated Cylinder
   "truncated-cylinder": [
-    { label: "Diameter (D)", key: "diameter" },
-    { label: "Height (H)", key: "height" },
-    { label: "Angle (α)", key: "angle" },
+    { label: "Diameter (diameter)", key: "diameter" },
+    { label: "Height (height)", key: "height" },
+    { label: "Angle (angle)", key: "angle" },
     { label: "Number of Divisions (n)", key: "n" },
   ],
 
@@ -93,7 +93,7 @@ const shapeForms: Record<string, { label: string; key: string }[]> = {
     { label: "Small Diameter (D2)", key: "D2" },
     { label: "Height (H)", key: "H" },
     { label: "Offset (X)", key: "X" },
-    { label: "Angle (a)", key: "a" },
+    { label: "Angle (a)", key: "alpha" },
     { label: "Number of Divisions (n)", key: "n" },
   ],
 
@@ -136,7 +136,7 @@ const shapeForms: Record<string, { label: string; key: string }[]> = {
   ],
 
   // ✅ Pants 2
-  "pants2": [
+  "pants-2": [
     { label: "Main Diameter (D1)", key: "D1" },
     { label: "Branch Diameter (D2)", key: "D2" },
     { label: "Height (H)", key: "H" },
@@ -155,8 +155,8 @@ const shapeForms: Record<string, { label: string; key: string }[]> = {
     { label: "Number of Divisions (n)", key: "n" },
   ],
 
-  // ✅ Breeches (Full)
-  "breeches-full": [
+  // ✅ Breeches
+  "breeches": [
     { label: "Diameter (D)", key: "D" },
     { label: "Left Length (L1)", key: "L1" },
     { label: "Right Length (L2)", key: "L2" },
@@ -174,12 +174,20 @@ const shapeForms: Record<string, { label: string; key: string }[]> = {
     { label: "Number of Divisions (n)", key: "n" },
   ],
 
-  // ✅ Tee Oblique
-  "tee-oblique": [
-    { label: "Length (L1)", key: "L1" },
+  // ✅ Tee
+  tee: [
+     { label: "Main Diameter (D)", key: "D" },
+  { label: "Branch Diameter (d)", key: "d" },
+  { label: "Branch Length (L1)", key: "L1" },
+  { label: "Angle (a°)", key: "a" },
+  { label: "Number of Divisions (n)", key: "n" },
+  ],
+
+  // ✅ Tee Eccentric
+  "tee-eccentric": [
     { label: "Main Diameter (D)", key: "D" },
     { label: "Branch Diameter (d)", key: "d" },
-    { label: "Angle (a)", key: "a" },
+    { label: "Offset (X)", key: "X" },
     { label: "Number of Divisions (n)", key: "n" },
   ],
 
