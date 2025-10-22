@@ -50,7 +50,7 @@ const backendShapeMap: Record<string, string> = {
   "pants": "pants",
   "pants-ecc": "pants_ecc",
   "offset-tee": "offset_tee",
-  "tee": "tee",
+  "tee": "tee_oblique",
   "tee-eccentric": "tee_eccentric",
   "tee-on-bend": "tee_on_bend",
   "tee-on-cone": "tee_on_cone",
