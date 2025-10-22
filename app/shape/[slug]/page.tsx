@@ -297,6 +297,36 @@ const shapeTechImages: Record<string, string> = {
   flange: "/shapes/flange2.png",
 };
 
+// Affichage images (display images to the left of results) - mapping for mismatched filenames
+const shapeAffichageImages: Record<string, string> = {
+  "truncated-cylinder": "/affichage/Truncated-Cylinder-affichage.png",
+  "rectangle-to-circle": "/affichage/rectongle-to-circle-affichage.png",
+  "circle-to-rectangle": "/affichage/circle-to-rectongle-affichage.png",
+  "rectangle-to-rectangle": "/affichage/rectongle-to-rectongle-affichage.png",
+  "rectangle-to-circle-ecc": "/affichage/rectongle-to-cercle-ecc-affichage.png",
+  "pants-2": "/affichage/pants2-affichage.png",
+  "tee-eccentric": "/affichage/tee-eccentric-affichage.png",
+  pyramid: "/affichage/piramid-affichage.png",
+  // Add other shapes that match the default pattern
+  cone: "/affichage/cone-affichage.png",
+  "offset-cone": "/affichage/offset-cone-affichage.png",
+  "frustum-cone": "/affichage/frustum-cone-affichage.png",
+  "frustum-cone-triangulation": "/affichage/frustum-cone-triangulation-affichage.png",
+  "frustum-ecc-paral": "/affichage/frustum-ecc-paral-affichage.png",
+  "frustum-ecc-angle": "/affichage/frustum-ecc-angle-affichage.png",
+  bend: "/affichage/bend-affichage.png",
+  pants: "/affichage/pants-affichage.png",
+  "pants-ecc": "/affichage/pants-ecc-affichage.png",
+  breeches: "/affichage/breeches-affichage.png",
+  tee: "/affichage/tee-affichage.png",
+  "tee-on-cone": "/affichage/tee-on-cone-affichage.png",
+  "offset-tee": "/affichage/offset-tee-affichage.png",
+  "tee-on-bend": "/affichage/tee-on-bend-affichage.png",
+  auger: "/affichage/auger-affichage.png",
+  sphere: "/affichage/sphere-affichage.png",
+  flange: "/affichage/flange-affichage.png",
+};
+
 /* -----------------------------------------------
    🔹 SHAPE TITLES & DESCRIPTIONS (custom per slug)
 ------------------------------------------------- */
@@ -474,9 +504,10 @@ export default function ShapePage({ params }: { params: { slug: string } }) {
   const fields = shapeForms[slug] || [];
   const imageSrc = shapeImages[slug] || "/shapes/default.jpg";
   const techImageSrc = shapeTechImages[slug] || imageSrc;
+  const affichageImageSrc = shapeAffichageImages[slug] || `/affichage/${slug}-affichage.png`;
   const meta = shapeMeta[slug] || { title: slug, description: "" };
 
   return (
-    <ClientShapePage slug={slug} fields={fields} imageSrc={imageSrc} techImageSrc={techImageSrc} title={meta.title} description={meta.description} />
+    <ClientShapePage slug={slug} fields={fields} imageSrc={imageSrc} techImageSrc={techImageSrc} affichageImageSrc={affichageImageSrc} title={meta.title} description={meta.description} />
   );
 }

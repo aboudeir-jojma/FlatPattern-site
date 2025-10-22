@@ -7,6 +7,7 @@ interface ClientShapePageProps {
   fields: { label: string; key: string }[];
   imageSrc: string;
   techImageSrc?: string;
+  affichageImageSrc?: string;
   title?: string;
   description?: string;
 }
@@ -16,6 +17,7 @@ export default function ClientShapePage({
   fields,
   imageSrc,
   techImageSrc,
+  affichageImageSrc,
   title,
   description,
 }: ClientShapePageProps) {
@@ -33,9 +35,6 @@ export default function ClientShapePage({
     }
     return "mm";
   };
-
-  // ✅ Image affichage dynamique
-  const affichageImageSrc = `/affichage/${slug}-affichage.png`;
 
   // ✅ Scroll auto vers résultats après génération
   useEffect(() => {
