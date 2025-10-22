@@ -8,7 +8,8 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    setActive(pathname);
+    const normalizedPath = pathname === "/" ? "/" : pathname.replace(/\/$/, '');
+    setActive(normalizedPath);
   }, [pathname]);
 
   const handleLinkClick = (href) => {
@@ -32,25 +33,25 @@ export default function Navbar() {
           </a>
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8 text-sm md:text-base">
-            <a href="/" className="relative pb-1" onClick={() => setActive("/")}>
+            <a href="/" className="relative pb-1">
               Home
               {active === "/" && (
                 <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-orange-500 rounded-full"></span>
               )}
             </a>
-            <a href="/privacy" className="relative pb-1" onClick={() => setActive("/privacy")}>
+            <a href="/privacy" className="relative pb-1">
              Privacy
               {active === "/privacy" && (
                 <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-orange-500 rounded-full"></span>
               )}
             </a>
-            <a href="/terms" className="relative pb-1" onClick={() => setActive("/terms")}>
+            <a href="/terms" className="relative pb-1">
              Terms
               {active === "/terms" && (
                 <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-orange-500 rounded-full"></span>
               )}
             </a>
-            <a href="/contact" className="relative pb-1" onClick={() => setActive("/contact")}>
+            <a href="/contact" className="relative pb-1">
               Contact
               {active === "/contact" && (
                 <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-orange-500 rounded-full"></span>
