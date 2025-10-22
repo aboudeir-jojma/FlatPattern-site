@@ -186,6 +186,7 @@ const shapeForms: Record<string, { label: string; key: string }[]> = {
   // ✅ Tee Eccentric
   "tee-eccentric": [
     { label: "Main Diameter (D)", key: "D" },
+     { label: "Height (H)", key: "H" },
     { label: "Branch Diameter (d)", key: "d" },
     { label: "Offset (X)", key: "X" },
     { label: "Number of Divisions (n)", key: "n" },
