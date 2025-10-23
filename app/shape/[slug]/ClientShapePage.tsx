@@ -136,7 +136,7 @@ export default function ClientShapePage({
         >
           {/* Left: Affichage Image */}
           <div className="w-full md:w-1/2 flex flex-col items-center">
-            <div className="w-full rounded-xl border border-slate-200 bg-white p-4 flex justify-center min-h-[28rem]">
+            <div className="w-full rounded-xl border border-slate-200 bg-white p-4 flex justify-center min-h-[20rem] md:min-h-[28rem]">
               <img
                 src={affichageImageSrc}
                 alt={`${slug} affichage`}
@@ -147,7 +147,7 @@ export default function ClientShapePage({
 
           {/* Right: Results */}
           <div className="w-full md:w-1/2 flex flex-col items-center">
-            <div className="w-full bg-slate-900/90 border border-slate-800 rounded-xl shadow-xl p-6 flex flex-col md:flex-row justify-between items-center mt-0 min-h-[28rem] text-slate-200">
+            <div className="w-full bg-slate-900/90 border border-slate-800 rounded-xl shadow-xl p-6 flex flex-col md:flex-row justify-between items-center mt-0 min-h-[20rem] md:min-h-[28rem] text-slate-200">
               <div>
                 <h3 className="font-semibold text-xl mb-2 text-orange-500">
                   Results:
