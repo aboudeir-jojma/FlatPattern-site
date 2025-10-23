@@ -7,3 +7,4 @@ Host: https://sheetmetaldevelopment.com
 
 # Sitemaps
 Sitemap: https://sheetmetaldevelopment.com/sitemap.xml
+Sitemap: https://sheetmetaldevelopment.com/sitemap-0.xml
