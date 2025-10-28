@@ -165,7 +165,7 @@ const backendShapeMap: Record<string, string> = {
           </div>
         )}
 
-        {/* 🔹 Champs principaux */}
+        {/* 🔹 Champs principauxx */}
         {fields.map(({ label, key }, i) => (
           <div key={i}>
             <label className="block font-medium mb-1 text-slate-200">{label}</label>
