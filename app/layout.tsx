@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="fr">
       <head>
 
-        <meta name="google-site-verification" content="suumnIVaPXF8gKPZig3masLvkW5vIzRF1a7U4j0u8Dw" />
+        <meta name="google-site-verification" content="M6uYBqhtKzJU6rMGS7ocrhPUe6bK1yn1r6mITeKQtKA" />
         
         {/* Google Analytics */}
         <script
