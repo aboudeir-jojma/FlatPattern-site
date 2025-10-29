@@ -13,7 +13,7 @@ export default function ShapeForm({
   fields: { label: string; key: string; type?: string }[];
   shapeName: string;
   loading: boolean;
-  setResult: React.Dispatch<React.SetStateAction<Record<string, number> | null>>;
+  setResult: React.Dispatch<React.SetStateAction<Record<string, number | number[]> | null>>;
   setDxfBase64: React.Dispatch<React.SetStateAction<string | null>>;
   setMessage: React.Dispatch<React.SetStateAction<string>>;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;

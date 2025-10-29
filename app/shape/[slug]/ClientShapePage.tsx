@@ -21,7 +21,7 @@ export default function ClientShapePage({
   title,
   description,
 }: ClientShapePageProps) {
-  const [result, setResult] = useState<Record<string, number> | null>(null);
+  const [result, setResult] = useState<Record<string, number | number[]> | null>(null);
   const [dxfBase64, setDxfBase64] = useState<string | null>(null);
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -153,12 +153,30 @@ export default function ClientShapePage({
                   Results:
                 </h3>
                 <ul className="text-slate-200 text-base">
-                  {Object.entries(result).map(([key, value]) => (
-                    <li key={key}>
-                      <span className="font-medium text-white">{key}:</span>{" "}
-                      {value} {getUnit(key)}
-                    </li>
-                  ))}
+                  {Object.entries(result).map(([key, value]) => {
+                      if (key === "h_values" && Array.isArray(value)) {
+          // ✅ h_values est un tableau de nombres décimaux
+          return (
+            <li key={key}>
+              <span className="font-medium text-white">{key}:</span>
+              <ul className="ml-4 mt-1 grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-2 text-gray-300">
+                {value.map((val, index) => (
+                  <li key={index}>
+                    {val} {getUnit(key)}
+                  </li>
+                ))}
+              </ul>
+            </li>
+          );
+        }
+
+                    return (
+                      <li key={key}>
+                        <span className="font-medium text-white">{key}:</span>{" "}
+                        {value} {getUnit(key)}
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
 
