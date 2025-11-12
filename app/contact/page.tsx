@@ -68,6 +68,18 @@ export default function ContactPage() {
                 </a>
               </div>
             </div>
+            <div className="flex items-center gap-3">
+              <div className="text-3xl">📞</div>
+              <div className="text-left">
+                <p className="font-semibold text-white">Call Us</p>
+                <a
+                  href="tel:+212772888309"
+                  className="text-white underline-offset-4 hover:underline"
+                >
+                  +212 7 72 88 83 09
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 
