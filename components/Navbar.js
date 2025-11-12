@@ -1,16 +1,26 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [active, setActive] = useState("/");
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const normalizedPath = pathname === "/" ? "/" : pathname.replace(/\/$/, '');
     setActive(normalizedPath);
   }, [pathname]);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const handleLinkClick = (href) => {
     setActive(href);
@@ -20,43 +30,40 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className="
-          fixed top-0 left-0 w-full
-          bg-slate-900/90 border-b border-slate-800
-          text-white shadow-lg z-50
-          py-2 px-6 backdrop-blur-sm relative
-        "
+        className={`fixed top-0 left-0 w-full border-b border-slate-800 text-white shadow-lg z-50 py-2 px-6 transition-colors duration-300 ${
+          isScrolled ? "bg-slate-900/70 backdrop-blur-md" : "bg-slate-900/90 backdrop-blur-sm"
+        }`}
       >
         <div className="w-4/5 max-w-7xl mx-auto flex items-center justify-between">
-          <a href="/" className="flex items-center">
+          <Link href="/" className="flex items-center" onClick={() => handleLinkClick("/")}>
             <img src="/logo.png" alt="sheet metal logo" className="h-15 w-auto" />
-          </a>
+          </Link>
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8 text-sm md:text-base">
-            <a href="/" className="relative pb-1">
+            <Link href="/" className="relative pb-1" onClick={() => handleLinkClick("/")}>
               Home
               {active === "/" && (
                 <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-orange-500 rounded-full"></span>
               )}
-            </a>
-            <a href="/privacy" className="relative pb-1">
+            </Link>
+            <Link href="/privacy" className="relative pb-1" onClick={() => handleLinkClick("/privacy")}>
              Privacy
               {active === "/privacy" && (
                 <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-orange-500 rounded-full"></span>
               )}
-            </a>
-            <a href="/terms" className="relative pb-1">
+            </Link>
+            <Link href="/terms" className="relative pb-1" onClick={() => handleLinkClick("/terms")}>
              Terms
               {active === "/terms" && (
                 <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-orange-500 rounded-full"></span>
               )}
-            </a>
-            <a href="/contact" className="relative pb-1">
+            </Link>
+            <Link href="/contact" className="relative pb-1" onClick={() => handleLinkClick("/contact")}>
               Contact
               {active === "/contact" && (
                 <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-orange-500 rounded-full"></span>
               )}
-            </a>
+            </Link>
           </div>
           {/* Hamburger Menu Button */}
           <button
@@ -72,18 +79,18 @@ export default function Navbar() {
         {isOpen && (
           <div className="absolute top-full left-0 w-full bg-slate-900 text-white shadow-lg border-t border-slate-800 md:hidden">
             <div className="flex flex-col space-y-4 p-6">
-              <a href="/" className="text-lg hover:text-orange-500" onClick={() => handleLinkClick("/")}>
+              <Link href="/" className="text-lg hover:text-orange-500" onClick={() => handleLinkClick("/")}>
                 Home
-              </a>
-              <a href="/privacy" className="text-lg hover:text-orange-500" onClick={() => handleLinkClick("/privacy")}>
+              </Link>
+              <Link href="/privacy" className="text-lg hover:text-orange-500" onClick={() => handleLinkClick("/privacy")}>
                Privacy
-              </a>
-              <a href="/terms" className="text-lg hover:text-orange-500" onClick={() => handleLinkClick("/terms")}>
+              </Link>
+              <Link href="/terms" className="text-lg hover:text-orange-500" onClick={() => handleLinkClick("/terms")}>
                Terms
-              </a>
-              <a href="/contact" className="text-lg hover:text-orange-500" onClick={() => handleLinkClick("/contact")}>
+              </Link>
+              <Link href="/contact" className="text-lg hover:text-orange-500" onClick={() => handleLinkClick("/contact")}>
                 Contact
-              </a>
+              </Link>
             </div>
           </div>
         )}
