@@ -123,13 +123,26 @@ export default function TermsPage() {
 
           </div>
 
-          <div className="bg-[#fffaf3] rounded-2xl p-6 md:p-8 shadow-sm mb-8">
-            <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-gray-800">Contact Us</h2>
-          <p className="mb-4">If you have any questions about these Terms and Conditions, You can contact us:</p>
-            <ul className="list-disc pl-6 mb-6">
-              <li>By email: contact@sheetmetaldevelopment.com</li>
-            </ul>
+              <section className="mt-16 bg-gradient-to-b from-slate-900 to-slate-800/80 border border-gray-200 rounded-3xl p-12 text-center shadow-sm">
+          <h2 className="text-2xl md:text-3xl font-semibold text-white">Have Questions?</h2>
+          <p className="text-lg mb-8  text-white">We're here to help with any privacy concerns or inquiries.</p>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+            <div className="flex items-center gap-3">
+              <div className="text-3xl">📧</div>
+              <div className="text-left">
+                <p className="font-semibold  text-white">Email Us</p>
+                <p className=" text-white">contact@sheetmetaldevelopment.com</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="text-3xl">🌐</div>
+              <div className="text-left">
+                <p className="font-semibold  text-white">Visit Our Site</p>
+                <p className=" text-white">sheetmetaldevelopment.com</p>
+              </div>
+            </div>
           </div>
+        </section>
         </div>
       </div>
     </div>

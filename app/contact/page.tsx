@@ -36,37 +36,43 @@ export default function ContactPage() {
         </div>
 
         {/* Contact Info Section */}
-        <div className="bg-gray-50 rounded-xl shadow-lg border border-gray-200 p-6 mx-auto max-w-md">
-          <h3 className="text-2xl font-bold text-orange-500 mb-6 text-center">
-            Contact Information
-          </h3>
-          <p className="text-gray-700 text-center mb-6">
-            Ready to start your project? Contact us directly using the information below.
+        <section className="mt-16 bg-gradient-to-b from-slate-900 to-slate-800/80 border border-gray-200 rounded-3xl p-12 text-center shadow-sm">
+          <h2 className="text-2xl md:text-3xl font-semibold text-white">Have Questions?</h2>
+          <p className="text-lg mb-8 text-white">
+            We're here to help with any privacy concerns or inquiries.
           </p>
-          <div className="space-y-4 text-center">
-            <div className="flex items-center justify-center gap-3">
-              <Mail className="text-orange-500 w-6 h-6" />
-              <a
-                href="mailto:contact@sheetmetaldevelopment.com"
-                className="text-gray-800 hover:text-orange-500 transition font-bold"
-              >
-                contact@sheetmetaldevelopment.com
-              </a>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+            <div className="flex items-center gap-3">
+              <div className="text-3xl">📧</div>
+              <div className="text-left">
+                <p className="font-semibold text-white">Email Us</p>
+                <a
+                  href="mailto:contact@sheetmetaldevelopment.com"
+                  className="text-white underline-offset-4 hover:underline"
+                >
+                  contact@sheetmetaldevelopment.com
+                </a>
+              </div>
             </div>
-            <div className="flex items-center justify-center gap-3">
-              <Phone className="text-orange-500 w-6 h-6" />
-              <span className="text-gray-800 font-bold">
-                +212 7 72 88 83 09
-              </span>
-            </div>
-            <div className="flex items-center justify-center gap-3">
-              <MapPin className="text-orange-500 w-6 h-6" />
-              <span className="text-gray-800 font-bold">
-                134 Rue Assouane, Casablanca 20250, Maroc
-              </span>
+            <div className="flex items-center gap-3">
+              <div className="text-3xl">🌐</div>
+              <div className="text-left">
+                <p className="font-semibold text-white">Visit Our Site</p>
+                <a
+                  href="https://sheetmetaldevelopment.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white underline-offset-4 hover:underline"
+                >
+                  sheetmetaldevelopment.com
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
+
+
+        
       </div>
     </section>
   );
